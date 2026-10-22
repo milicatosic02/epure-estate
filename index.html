@@ -193,7 +193,7 @@ body.locked{overflow:hidden}
 .spec li{padding:1.15rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(9rem,.6fr) minmax(0,1.4fr);gap:1.2rem}
 .spec li:last-child{border-bottom:1px solid var(--line)}
 .spec .k{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding-top:.25rem}
-.spec .v{font-size:1rem}
+.spec .v{font-family:var(--display);font-size:1.35rem;line-height:1.35;font-weight:400;color:var(--ink)}
 @media (max-width:860px){.arch{grid-template-columns:1fr}.spec li{grid-template-columns:1fr;gap:.3rem}}
 
 /* residences */
@@ -278,7 +278,7 @@ textarea{min-height:5.5rem;resize:vertical}
 .band-dark .hero-cap{border-bottom-color:#3a352f}
 .band-dark .hero-cap h1{color:var(--on-dark)}
 .band-dark .hero-meta{color:#a69a89}.band-dark .hero-meta strong{color:var(--on-dark)}
-.band-dark .spec li{border-color:#3a352f}.band-dark .spec .k{color:#8f8372}.band-dark .spec .v{color:#e6ddcd}
+.band-dark .spec li{border-color:#3a352f}.band-dark .spec .k{color:#8f8372}.band-dark .spec .v{color:var(--on-dark)}
 .band-dark .caption,.band-dark .swipe-hint{color:#8f8372}
 .band-dark .text p,.band-dark .lead{color:#e6ddcd}
 footer.band-dark{border-top:0;color:#a69a89}
@@ -336,6 +336,24 @@ footer.band-dark p{color:#a69a89}
 }
 @media (max-width:760px) and (orientation:landscape){.hero{height:auto;min-height:0;aspect-ratio:16/9}}
 
+/* gallery */
+.gal-h{margin-top:3rem;padding-bottom:.8rem;border-bottom:1px solid var(--line);font-size:1.3rem;letter-spacing:.02em}
+.gal{columns:3;column-gap:1rem;margin-top:1.2rem}
+.gal figure{margin:0 0 1rem;break-inside:avoid}
+.gal-btn{display:block;width:100%;padding:0;border:0;background:var(--stone);cursor:zoom-in;overflow:hidden}
+.gal-btn img{width:100%;height:auto;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.gal-btn:hover img,.gal-btn:focus-visible img{transform:scale(1.04)}
+.gal figcaption{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+@media (max-width:860px){.gal{columns:2;column-gap:.6rem}.gal figure{margin-bottom:.9rem}.gal figcaption{font-size:.62rem;letter-spacing:.14em}.gal-h{margin-top:2.2rem}}
+.lb{position:fixed;inset:0;z-index:30;background:rgba(20,18,15,.96);display:flex;align-items:center;justify-content:center;padding:calc(3.4rem + env(safe-area-inset-top,0px)) var(--gutter-r) calc(3.4rem + env(safe-area-inset-bottom,0px)) var(--gutter-l)}
+.lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-x,.lb-nav{position:absolute;width:44px;height:44px;border:1px solid #4a4036;background:rgba(20,18,15,.6);color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer;font-family:var(--display)}
+.lb-x{top:calc(.8rem + env(safe-area-inset-top,0px));right:var(--gutter-r)}
+.lb-nav{top:50%;transform:translateY(-50%)}
+.lb-prev{left:var(--gutter-l)}.lb-next{right:var(--gutter-r)}
+.lb-cap{position:absolute;left:var(--gutter-l);right:var(--gutter-r);bottom:calc(1rem + env(safe-area-inset-bottom,0px));text-align:center;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#b9ad9b}
+@media (max-width:760px){.lb-nav{display:none}.lb{padding-left:0;padding-right:0}}
+
 /* footer */
 footer{border-top:1px solid var(--line);padding-block:2.4rem 3rem;font-size:.82rem;color:var(--muted)}
 footer .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem}
@@ -359,6 +377,7 @@ footer p{max-width:var(--measure)}
         <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
         <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
         <li><a href="#sadrzaji" data-i18n="nav.amen">Sadržaji</a></li>
+        <li><a href="#galerija" data-i18n="nav.gallery">Galerija</a></li>
       </ul>
     </nav>
     <div class="nav-right">
@@ -382,6 +401,7 @@ footer p{max-width:var(--measure)}
     <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
     <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
     <li><a href="#sadrzaji" data-i18n="nav.amen">Sadržaji</a></li>
+    <li><a href="#galerija" data-i18n="nav.gallery">Galerija</a></li>
     <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
   </ul>
   <div class="lang" role="group" aria-label="Jezik / Language">
@@ -606,6 +626,42 @@ footer p{max-width:var(--measure)}
       <figure class="g-tall"><img src="assets/lobi-recepcija.jpg" srcset="assets/r/lobi-recepcija-800.jpg 800w, assets/r/lobi-recepcija-1200.jpg 1200w, assets/lobi-recepcija.jpg 1280w" sizes="(max-width:860px) 84vw, 380px" alt="Recepcijski pult od masivnog kamena ispred reljefnog zida" width="1280" height="1600" loading="lazy"><figcaption data-i18n="g.6">Pult od kamena</figcaption></figure>
     </div>
     <p class="swipe-hint" data-i18n="swipe">Prevucite za još prikaza →</p>
+    <a class="next" href="#galerija"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.gallery">Galerija</strong></a>
+  </div>
+</section>
+
+<section id="galerija" class="section wrap band" data-tab="galerija">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="ga.eyebrow">Galerija</p>
+        <h2 data-i18n="ga.h2">Svi prikazi objekta, spolja i iznutra.</h2>
+      </div>
+      <p class="lead" data-i18n="ga.lead">Vizuelni prikazi su ilustrativni i potiču iz projekta. Dodirnite sliku za prikaz preko celog ekrana.</p>
+    </div>
+    <h3 class="gal-h rv" data-i18n="ga.ext">Eksterijer</h3>
+    <div class="gal rv">
+      <figure><button type="button" class="gal-btn" data-i="0"><img src="assets/ext-noc.jpg" srcset="assets/r/ext-noc-800.jpg 800w, assets/r/ext-noc-1200.jpg 1200w, assets/ext-noc.jpg 1536w" sizes="(max-width:760px) 50vw, 380px" alt="Zgrada noću, ugao Pariske i Uzun Mirkove" width="1536" height="1024" loading="lazy"></button><figcaption data-i18n="gal.ext-noc">Zgrada noću, ugao Pariske i Uzun Mirkove</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="1"><img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Fasada iz Pariske ulice" width="1600" height="1066" loading="lazy"></button><figcaption data-i18n="gal.ext-front">Fasada iz Pariske ulice</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="2"><img src="assets/ext-detalj.jpg" srcset="assets/r/ext-detalj-800.jpg 800w, assets/ext-detalj.jpg 1200w" sizes="(max-width:760px) 50vw, 380px" alt="Detalj fasade i ulaza" width="1200" height="1600" loading="lazy"></button><figcaption data-i18n="gal.ext-detalj">Detalj fasade i ulaza</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="3"><img src="assets/ext-ugao.jpg" srcset="assets/r/ext-ugao-800.jpg 800w, assets/r/ext-ugao-1200.jpg 1200w, assets/ext-ugao.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ugaoni pogled" width="1600" height="1090" loading="lazy"></button><figcaption data-i18n="gal.ext-ugao">Ugaoni pogled</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="4"><img src="assets/ext-ugao-2.jpg" srcset="assets/r/ext-ugao-2-800.jpg 800w, assets/r/ext-ugao-2-1200.jpg 1200w, assets/ext-ugao-2.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Pogled iz Uzun Mirkove" width="1600" height="1066" loading="lazy"></button><figcaption data-i18n="gal.ext-ugao-2">Pogled iz Uzun Mirkove</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="5"><img src="assets/ext-ugao-3.jpg" srcset="assets/r/ext-ugao-3-800.jpg 800w, assets/r/ext-ugao-3-1200.jpg 1200w, assets/ext-ugao-3.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Sumrak, ugaoni ulaz" width="1600" height="1066" loading="lazy"></button><figcaption data-i18n="gal.ext-ugao-3">Sumrak, ugaoni ulaz</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="6"><img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Pariska ulica, uz istorijsko jezgro" width="1600" height="1107" loading="lazy"></button><figcaption data-i18n="gal.ext-ulica">Pariska ulica, uz istorijsko jezgro</figcaption></figure>
+    </div>
+    <h3 class="gal-h rv" data-i18n="ga.lob">Lobi i zajednički prostori</h3>
+    <div class="gal rv">
+      <figure><button type="button" class="gal-btn" data-i="7"><img src="assets/lobi-epure.jpg" srcset="assets/r/lobi-epure-800.jpg 800w, assets/r/lobi-epure-1200.jpg 1200w, assets/lobi-epure.jpg 1403w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni hol" width="1403" height="1121" loading="lazy"></button><figcaption data-i18n="gal.lobi-epure">Ulazni hol</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="8"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni portal i salon" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-ulaz">Ulazni portal i salon</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="9"><img src="assets/lobi-recepcija-logo.jpg" srcset="assets/r/lobi-recepcija-logo-800.jpg 800w, assets/lobi-recepcija-logo.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Recepcija" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-recepcija-logo">Recepcija</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="10"><img src="assets/lobi-salon.jpg" srcset="assets/r/lobi-salon-800.jpg 800w, assets/r/lobi-salon-1200.jpg 1200w, assets/lobi-salon.jpg 1280w" sizes="(max-width:760px) 50vw, 380px" alt="Salon sa maslinom" width="1280" height="1600" loading="lazy"></button><figcaption data-i18n="gal.lobi-salon">Salon sa maslinom</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="11"><img src="assets/lobi-liftovi.jpg" srcset="assets/r/lobi-liftovi-800.jpg 800w, assets/r/lobi-liftovi-1200.jpg 1200w, assets/lobi-liftovi.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Liftovi i recepcijski pult" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-liftovi">Liftovi i recepcijski pult</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="12"><img src="assets/lobi-monogram.jpg" srcset="assets/r/lobi-monogram-800.jpg 800w, assets/lobi-monogram.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Monogram É" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-monogram">Monogram É</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="13"><img src="assets/lobi-hodnik.jpg" srcset="assets/r/lobi-hodnik-800.jpg 800w, assets/r/lobi-hodnik-1200.jpg 1200w, assets/lobi-hodnik.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Prilaz liftovima" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-hodnik">Prilaz liftovima</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="14"><img src="assets/lobi-recepcija.jpg" srcset="assets/r/lobi-recepcija-800.jpg 800w, assets/r/lobi-recepcija-1200.jpg 1200w, assets/lobi-recepcija.jpg 1280w" sizes="(max-width:760px) 50vw, 380px" alt="Pult od masivnog kamena" width="1280" height="1600" loading="lazy"></button><figcaption data-i18n="gal.lobi-recepcija">Pult od masivnog kamena</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="15"><img src="assets/lobi-ulaz-2.jpg" srcset="assets/r/lobi-ulaz-2-800.jpg 800w, assets/r/lobi-ulaz-2-1200.jpg 1200w, assets/lobi-ulaz-2.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni hol, pogled ka ulici" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-ulaz-2">Ulazni hol, pogled ka ulici</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="16"><img src="assets/lobi-epure-2.jpg" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Lobi sa natpisom ÉPURE" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-epure-2">Lobi sa natpisom ÉPURE</figcaption></figure>
+    </div>
     <a class="next" href="#kontakt"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.contact">Kontakt</strong></a>
   </div>
 </section>
@@ -650,9 +706,15 @@ footer p{max-width:var(--measure)}
   </div>
 </section>
 
-<div class="closing" aria-hidden="true" data-tab="pocetna"><picture><source media="(max-width:760px)" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="100vw"><img src="assets/lobi-epure.jpg" alt="" width="1403" height="1121" loading="lazy"></picture></div>
-
 </main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Galerija">
+  <button type="button" class="lb-x" id="lb-x" aria-label="Zatvori">×</button>
+  <button type="button" class="lb-nav lb-prev" id="lb-prev" aria-label="Prethodna">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button type="button" class="lb-nav lb-next" id="lb-next" aria-label="Sledeća">›</button>
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
 
 <div class="mcta"><a href="#kontakt" data-i18n="nav.cta">Zakažite razgovor</a></div>
 
@@ -715,6 +777,8 @@ footer p{max-width:var(--measure)}
     'z.h5':'Commercial space','z.p5':'1,175 m² of net commercial space on the ground floor, beside the corner entrance on Pariska.',
     'z.h6':'Climate comfort','z.p6':'Heating and cooling of every residence through a heat-pump system.',
     'g.1':'Entrance hall','g.2':'Reception','g.3':'Lounge','g.4':'Lifts and reception','g.5':'Approach to the lifts','g.6':'Stone reception desk',
+    'nav.gallery':'Gallery','ga.eyebrow':'Gallery','ga.h2':'Every view of the building, outside and in.','ga.lead':'Visualisations are illustrative and come from the design. Tap an image to view it full screen.','ga.ext':'Exterior','ga.lob':'Lobby and shared spaces',
+    'gal.ext-noc':'The building at night, corner of Pariska and Uzun Mirkova','gal.ext-front':'Façade from Pariska street','gal.ext-detalj':'Façade and entrance detail','gal.ext-ugao':'Corner view','gal.ext-ugao-2':'View from Uzun Mirkova','gal.ext-ugao-3':'Dusk, the corner entrance','gal.ext-ulica':'Pariska street, within the historic core','gal.lobi-epure':'Entrance hall','gal.lobi-ulaz':'Entrance portal and lounge','gal.lobi-recepcija-logo':'Reception','gal.lobi-salon':'Lounge with olive tree','gal.lobi-liftovi':'Lifts and reception desk','gal.lobi-monogram':'É monogram','gal.lobi-hodnik':'Approach to the lifts','gal.lobi-recepcija':'Solid stone reception desk','gal.lobi-ulaz-2':'Entrance hall, view to the street','gal.lobi-epure-2':'Lobby with the ÉPURE sign',
     'k.eyebrow':'Contact','k.h2':'Book a conversation and a viewing.',
     'k.lead':'Send an enquiry with the layout you are interested in. We reply within one working day with floor plans and availability.',
     'k.k1':'Email','k.k2':'Project address','k.v2':'Pariska 22, Belgrade','k.k3':'Developer',
@@ -747,8 +811,8 @@ footer p{max-width:var(--measure)}
   setLang(want==='sr'?'sr':'en');
 
   /* ---------- tabovi: svaka sekcija je zasebna strana ---------- */
-  var TABS=['pocetna','lokacija','arhitektura','rezidencije','sadrzaji','kontakt'];
-  var TITLES={sr:{pocetna:'ÉPURE Pariska 22',lokacija:'Lokacija',arhitektura:'Arhitektura',rezidencije:'Rezidencije',sadrzaji:'Sadržaji',kontakt:'Kontakt'},en:{pocetna:'ÉPURE Pariska 22',lokacija:'Location',arhitektura:'Architecture',rezidencije:'Residences',sadrzaji:'Amenities',kontakt:'Contact'}};
+  var TABS=['pocetna','lokacija','arhitektura','rezidencije','sadrzaji','galerija','kontakt'];
+  var TITLES={sr:{pocetna:'ÉPURE Pariska 22',lokacija:'Lokacija',arhitektura:'Arhitektura',rezidencije:'Rezidencije',sadrzaji:'Sadržaji',galerija:'Galerija',kontakt:'Kontakt'},en:{pocetna:'ÉPURE Pariska 22',lokacija:'Location',arhitektura:'Architecture',rezidencije:'Residences',sadrzaji:'Amenities',galerija:'Gallery',kontakt:'Contact'}};
   function showTab(id,scroll){
     if(TABS.indexOf(id)<0)id='pocetna';
     document.querySelectorAll('[data-tab]').forEach(function(n){n.hidden=(n.getAttribute('data-tab')!==id)});
@@ -808,6 +872,21 @@ footer p{max-width:var(--measure)}
     var f=c.getAttribute('data-f');
     rows.forEach(function(r){r.hidden=(f!=='sve'&&r.getAttribute('data-s')!==f)});
   })});
+
+  /* ---------- galerija: lightbox ---------- */
+  var gbtns=document.querySelectorAll('.gal-btn'),lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap'),gi=0;
+  function lbShow(i){gi=(i+gbtns.length)%gbtns.length;var im=gbtns[gi].querySelector('img');lbImg.src=im.getAttribute('src');lbImg.alt=im.alt;lbCap.textContent=gbtns[gi].nextElementSibling.textContent;}
+  function lbOpen(i){lbShow(i);lb.hidden=false;document.body.classList.add('locked');document.getElementById('lb-x').focus()}
+  function lbClose(){lb.hidden=true;document.body.classList.remove('locked');if(gbtns[gi])gbtns[gi].focus()}
+  gbtns.forEach(function(b){b.addEventListener('click',function(){lbOpen(parseInt(b.getAttribute('data-i'),10))})});
+  document.getElementById('lb-x').addEventListener('click',lbClose);
+  document.getElementById('lb-prev').addEventListener('click',function(){lbShow(gi-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){lbShow(gi+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)lbClose()});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')lbShow(gi-1);if(e.key==='ArrowRight')lbShow(gi+1)});
+  var tx=null;lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)lbShow(gi+(dx<0?1:-1))});
+  window.addEventListener('hashchange',function(){if(!lb.hidden)lbClose()});
 
   /* ---------- forma ---------- */
   var form=document.getElementById('upit'),ok=document.getElementById('ok'),mail='info@epure-estate.com';
