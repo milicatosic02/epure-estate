@@ -135,7 +135,7 @@ body.locked{overflow:hidden}
 /* mobile sticky CTA */
 .mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:8;padding:.7rem var(--gutter-r) calc(.7rem + env(safe-area-inset-bottom,0px)) var(--gutter-l);background:color-mix(in srgb,var(--dark) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .mcta a{display:block;text-align:center;background:var(--gold);color:var(--dark);text-decoration:none;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:.95rem}
-@media (max-width:860px){.burger{display:flex}.mcta{display:block}body{padding-bottom:4.2rem}}
+@media (max-width:860px){.burger{display:flex}.mcta{display:block;left:var(--gutter-l);right:var(--gutter-r);bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));padding:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}.mcta a{box-shadow:0 10px 30px rgba(0,0,0,.35)}body{padding-bottom:5.4rem}}
 .hero-cap{display:grid;grid-template-columns:1fr auto;gap:1.5rem 3rem;align-items:end;padding-block:2.2rem 2.6rem;border-bottom:1px solid var(--line)}
 .hero-cap h1{font-size:clamp(1.9rem,3.6vw,2.9rem);max-width:22ch;font-style:italic}
 .hero-meta{display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:right}
@@ -303,10 +303,10 @@ footer.band-dark p{color:#a69a89}
   h2{font-size:clamp(1.9rem,8.2vw,2.6rem)}
   .section-head{gap:1.4rem}
   .section-head .lead{font-size:1.28rem;line-height:1.45}
-  .hero{min-height:560px;max-height:940px}
-  .hero-over{padding-block:1.4rem 5.4rem}
+  .hero{height:calc(100svh - var(--nav-h,72px));min-height:520px;max-height:940px}
+  .hero-over{padding-block:1.4rem 6.4rem}
   .hero-over .inner{gap:.7rem}
-  .hero-over svg{height:clamp(58px,15vw,84px)}
+  .hero-over svg{height:clamp(58px,15vw,84px);margin-left:-12px}
   .hero-over .eyebrow{font-size:.66rem;letter-spacing:.22em}
   .hero-cap{padding-block:1.8rem 2rem;gap:1.2rem}
   .hero-cap h1{font-size:clamp(1.55rem,6.4vw,1.9rem)}
@@ -363,8 +363,8 @@ footer p{max-width:var(--measure)}
     </nav>
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Jezik / Language">
-        <button type="button" id="lang-sr" data-lang="sr" aria-pressed="true">SR</button>
         <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" id="lang-sr" data-lang="sr" aria-pressed="true">SR</button>
       </div>
       <a class="btn" href="#kontakt" data-i18n="nav.cta">Zakažite razgovor</a>
       <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Meni"><span></span><span></span><span></span></button>
@@ -385,8 +385,8 @@ footer p{max-width:var(--measure)}
     <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
   </ul>
   <div class="lang" role="group" aria-label="Jezik / Language">
-    <button type="button" data-lang="sr" aria-pressed="true">SR</button>
     <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="sr" aria-pressed="true">SR</button>
   </div>
 </div>
 
@@ -743,7 +743,8 @@ footer p{max-width:var(--measure)}
   var want=null;
   try{want=localStorage.getItem('epure-lang-v2')}catch(e){}
   if(/[?&]lang=en\b/.test(location.search))want='en';
-  if(want==='en')setLang('en');
+  if(/[?&]lang=sr\b/.test(location.search))want='sr';
+  setLang(want==='sr'?'sr':'en');
 
   /* ---------- tabovi: svaka sekcija je zasebna strana ---------- */
   var TABS=['pocetna','lokacija','arhitektura','rezidencije','sadrzaji','kontakt'];
@@ -760,6 +761,11 @@ footer p{max-width:var(--measure)}
   function fromHash(){var id=(location.hash||'#pocetna').replace('#','');showTab(id)}
   window.addEventListener('hashchange',fromHash);
   showTab((location.hash||'#pocetna').replace('#',''),false);
+
+  /* nav height feeds the mobile hero height (hero = viewport minus sticky nav) */
+  var navEl=document.querySelector('.nav');
+  function navH(){document.documentElement.style.setProperty('--nav-h',navEl.offsetHeight+'px')}
+  navH();window.addEventListener('resize',navH);
 
   /* ---------- mobilni meni ---------- */
   var menu=document.getElementById('menu'),burger=document.getElementById('burger');
