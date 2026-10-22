@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ÉPURE Pariska 22</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" id="meta-desc" content="ÉPURE, kolekcija od 18 gradskih rezidencija na uglu Pariske i Uzun Mirkove ulice, uz Kalemegdan, Beograd.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: full-bleed render hero, then a narrow editorial column with wide stone bands between chapters. */
+:root{
+  --bg:#efe8dc;        /* krem */
+  --bg-2:#e6ddcd;      /* svetli kamen */
+  --stone:#d9cfc0;     /* kamen */
+  --fg:#2e2822;        /* mastilo */
+  --ink:#4a4036;       /* braon iz logoa */
+  --muted:#7d6f60;
+  --line:#c9bca8;
+  --gold:#a88b61;
+  --gold-2:#8f7450;
+  --dark:#1e1c19;
+  --on-dark:#efe8dc;
+  --display:'Cormorant Garamond','Times New Roman',Georgia,serif;
+  --sans:'Jost','Futura','Montserrat','Helvetica Neue',Arial,sans-serif;
+  --gutter-l:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --measure:62ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1e1c19;--bg-2:#26231f;--stone:#2d2924;--fg:#efe8dc;--ink:#e6ddcd;--muted:#a69a89;--line:#4a4036;--gold:#c2a57a;--gold-2:#a88b61;--dark:#141311;--on-dark:#efe8dc;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1e1c19;--bg-2:#26231f;--stone:#2d2924;--fg:#efe8dc;--ink:#e6ddcd;--muted:#a69a89;--line:#4a4036;--gold:#c2a57a;--gold-2:#a88b61;--dark:#141311;--on-dark:#efe8dc;color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:300;line-height:1.08;margin:0;text-wrap:balance;color:var(--ink)}
+h2{font-size:clamp(2.1rem,4.5vw,3.4rem)}
+h3{font-size:1.55rem;font-weight:400}
+p{margin:0}
+.eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-2)}
+.wrap{padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.inner{max-width:1180px;margin:0 auto}
+.narrow{max-width:var(--measure)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
+.brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.brand svg{height:30px;width:auto}
+.brand span{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.links{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0}
+.links a{text-decoration:none;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--ink);padding:.3rem 0;border-bottom:1px solid transparent;white-space:nowrap}
+.nav .btn{white-space:nowrap;padding:.7rem 1.1rem}
+@media (max-width:1100px){.links{gap:1.1rem}.brand span{display:none}}
+.links a:hover,.links a:focus-visible{border-bottom-color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang{display:flex;gap:0;border:1px solid var(--line)}
+.lang button{font:inherit;font-size:.72rem;letter-spacing:.18em;font-weight:500;padding:.5rem .7rem;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.btn{display:inline-block;text-decoration:none;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:.8rem 1.4rem;border:1px solid var(--gold);color:var(--ink);background:transparent;transition:background .2s,color .2s}
+.btn:hover,.btn:focus-visible{background:var(--gold);color:var(--dark)}
+.btn.solid{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (max-width:860px){.links{display:none}.brand span{display:none}.nav .btn{display:none}.nav .lang{display:none}}
+
+/* hero: full-screen crossfade of the three brand images (logo is inside the images) */
+.hero{position:relative;background:var(--dark);overflow:hidden;color:var(--on-dark);height:100svh;min-height:520px;max-height:1100px}
+.slide{position:absolute;inset:0;opacity:0;animation:fade 21s infinite;will-change:opacity,transform}
+.slide img{width:100%;height:100%;object-fit:cover;animation:kb 21s infinite;transform-origin:center}
+.slide:nth-child(1){animation-delay:0s}.slide:nth-child(2){animation-delay:7s}.slide:nth-child(3){animation-delay:14s}
+.slide:nth-child(1) img{animation-delay:0s}.slide:nth-child(2) img{animation-delay:7s}.slide:nth-child(3) img{animation-delay:14s}
+@keyframes fade{0%{opacity:0}8%{opacity:1}33.3%{opacity:1}41.3%{opacity:0}100%{opacity:0}}
+.slide:nth-child(1){animation-name:fade1}
+@keyframes fade1{0%{opacity:1}33.3%{opacity:1}41.3%{opacity:0}100%{opacity:0}}
+@keyframes kb{0%{transform:scale(1)}41.3%{transform:scale(1.08)}100%{transform:scale(1.08)}}
+.slide.s3::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.72) 0%,rgba(20,18,15,0) 55%)}
+.hero-over{position:absolute;inset:auto 0 0 0;padding-block:2rem 2.4rem;z-index:2;pointer-events:none}
+.hero-over .inner{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem}
+.hero-over .eyebrow{color:#e6dcc6;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero-over svg{height:clamp(40px,6vw,80px);width:auto;opacity:0;transition:opacity .8s}
+.hero.on-building .hero-over svg{opacity:1}
+.cue{position:absolute;left:50%;bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:1px;height:48px;background:linear-gradient(to bottom,rgba(239,232,220,0),rgba(239,232,220,.9));z-index:2;animation:cue 2.2s infinite}
+@keyframes cue{0%{transform:translate(-50%,-10px);opacity:0}30%{opacity:1}100%{transform:translate(-50%,14px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.slide,.slide img,.cue{animation:none}.slide:nth-child(1){opacity:1}}
+.band-img{background:var(--stone)}
+.band-img img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;max-height:70vh}
+@media (max-width:760px){.hero{max-height:none}.hero-over{padding-block:1.4rem 3.4rem}}
+
+/* reveal on scroll */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+
+/* mobile menu */
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:18px;height:1px;background:var(--ink);transition:transform .3s,opacity .3s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:20;background:var(--dark);color:var(--on-dark);display:flex;flex-direction:column;justify-content:center;gap:2rem;padding:calc(2rem + env(safe-area-inset-top,0px)) var(--gutter-r) calc(2rem + env(safe-area-inset-bottom,0px)) var(--gutter-l);transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.2,1);visibility:hidden}
+.menu.open{transform:none;visibility:visible}
+.menu ul{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+.menu a{font-family:var(--display);font-size:clamp(2.2rem,9vw,3.2rem);font-weight:300;text-decoration:none;color:var(--on-dark);line-height:1.15}
+.menu .btn{font-family:var(--sans);font-size:.78rem;color:var(--on-dark);justify-self:start}
+.menu .lang{align-self:flex-start;border-color:#4a4036}
+.menu .lang button{color:#b9ad9b}
+.menu .lang button[aria-pressed="true"]{background:var(--gold);color:var(--dark)}
+.menu-close{position:absolute;top:calc(.9rem + env(safe-area-inset-top,0px));right:var(--gutter-r);width:44px;height:44px;border:1px solid #4a4036;background:transparent;color:var(--on-dark);font-size:1.3rem;cursor:pointer}
+.menu-meta{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#b9ad9b}
+body.locked{overflow:hidden}
+
+/* mobile sticky CTA */
+.mcta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:8;padding:.7rem var(--gutter-r) calc(.7rem + env(safe-area-inset-bottom,0px)) var(--gutter-l);background:color-mix(in srgb,var(--dark) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.mcta a{display:block;text-align:center;background:var(--gold);color:var(--dark);text-decoration:none;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:.95rem}
+@media (max-width:860px){.burger{display:flex}.mcta{display:block}body{padding-bottom:4.2rem}}
+.hero-cap{display:grid;grid-template-columns:1fr auto;gap:1.5rem 3rem;align-items:end;padding-block:2.2rem 2.6rem;border-bottom:1px solid var(--line)}
+.hero-cap h1{font-size:clamp(1.9rem,3.6vw,2.9rem);max-width:22ch;font-style:italic}
+.hero-meta{display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:right}
+.hero-meta strong{color:var(--ink);font-weight:500}
+@media (max-width:760px){.hero-cap{grid-template-columns:1fr}.hero-meta{text-align:left}}
+
+/* sections */
+.section{padding-block:clamp(4rem,9vw,7.5rem)}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:2rem 4rem;align-items:start}
+.section-head .lead{font-family:var(--display);font-size:1.5rem;line-height:1.4;font-weight:300;max-width:var(--measure);color:var(--fg)}
+@media (max-width:860px){.section-head{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:1.3rem}
+.text p{max-width:var(--measure)}
+
+/* key figures */
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:3.5rem}
+.fig{padding:1.8rem 1.4rem 1.6rem 0;border-right:1px solid var(--line);min-width:0}
+.fig:last-child{border-right:0}
+.fig + .fig{padding-left:1.4rem}
+.fig b{display:block;font-family:var(--display);font-weight:300;font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.fig b small{font-size:.45em;letter-spacing:.02em}
+.fig span{display:block;margin-top:.5rem;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.figures{grid-template-columns:repeat(2,minmax(0,1fr))}.fig:nth-child(2){border-right:0}.fig:nth-child(3){padding-left:0;border-top:1px solid var(--line)}.fig:nth-child(4){border-top:1px solid var(--line)}}
+
+/* bands */
+.band{background:var(--bg-2)}
+.band-dark{background:var(--dark);color:var(--on-dark)}
+.band-dark h2,.band-dark h3,.band-dark .lead{color:var(--on-dark)}
+.band-dark .eyebrow{color:var(--gold)}
+
+/* location */
+.loc-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:3rem 4rem;align-items:center;margin-top:3rem}
+.loc-photo{margin:3rem 0 0}
+.loc-photo img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.caption{display:block;margin-top:.7rem;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.map{width:100%;max-width:100%;aspect-ratio:1/1;background:var(--stone);border:1px solid var(--line)}
+.map svg{width:100%;height:100%;display:block}
+.loc-list{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.loc-list li{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:baseline;padding:1rem 0;border-bottom:1px solid var(--line);font-size:1rem}
+.loc-list li:first-child{border-top:1px solid var(--line)}
+.loc-list .k{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);min-width:9rem}
+@media (max-width:860px){.loc-grid{grid-template-columns:1fr}}
+
+/* architecture */
+.arch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem 4rem;margin-top:3rem;align-items:start}
+.arch img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:3rem}
+.trio img{width:100%;aspect-ratio:3/2;object-fit:cover}
+@media (max-width:760px){
+  .trio{display:flex;gap:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-left:calc(-1*var(--gutter-l));margin-right:calc(-1*var(--gutter-r));padding-left:var(--gutter-l);padding-right:var(--gutter-r);scrollbar-width:none}
+  .trio::-webkit-scrollbar{display:none}
+  .trio img{flex:0 0 84%;aspect-ratio:4/3;scroll-snap-align:center}
+}
+.spec{list-style:none;margin:0;padding:0}
+.spec li{padding:1.15rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(9rem,.6fr) minmax(0,1.4fr);gap:1.2rem}
+.spec li:last-child{border-bottom:1px solid var(--line)}
+.spec .k{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding-top:.25rem}
+.spec .v{font-size:1rem}
+@media (max-width:860px){.arch{grid-template-columns:1fr}.spec li{grid-template-columns:1fr;gap:.3rem}}
+
+/* residences */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2.6rem}
+.chip{font:inherit;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;padding:.55rem 1rem;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.tbl-wrap{overflow-x:auto;margin-top:1.6rem;border-top:1px solid var(--ink)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:560px}
+th,td{text-align:left;padding:.95rem .8rem .95rem 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+th{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+td{font-size:1rem}
+td.num,th.num{text-align:right;padding-right:0}
+td.id{font-family:var(--display);font-size:1.35rem;color:var(--ink);white-space:nowrap}
+tr[hidden]{display:none}
+@media (max-width:760px){table{min-width:0}th,td{padding:.8rem .35rem .8rem 0;font-size:.92rem}td.id{font-size:1.15rem}}
+.tbl-note{margin-top:1.2rem;font-size:.85rem;color:var(--muted);max-width:var(--measure)}
+.floors{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3rem}
+.floor{background:var(--bg);padding:1.3rem 1.2rem;min-width:0}
+.floor b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:300;color:var(--ink)}
+.floor span{font-size:.78rem;color:var(--muted);letter-spacing:.08em}
+
+/* amenities */
+.amen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3rem 3rem;margin-top:3.5rem}
+.amen h3{margin-bottom:.7rem}
+.amen p{font-size:.98rem;color:var(--muted)}
+.band-dark .amen p{color:#b9ad9b}
+.amen .n{display:block;font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--gold);margin-bottom:1rem;font-weight:300}
+@media (max-width:860px){.amen{grid-template-columns:1fr;gap:2.2rem}}
+.gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem;margin-top:3.5rem}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figure{margin:0;min-width:0}
+.gallery figcaption{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#b9ad9b;margin-top:.6rem}
+.g-wide{grid-column:span 4}.g-tall{grid-column:span 2}
+.g-wide img{aspect-ratio:3/2}.g-tall img{aspect-ratio:3/4}
+@media (max-width:860px){
+  .gallery{display:flex;gap:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin-left:calc(-1*var(--gutter-l));margin-right:calc(-1*var(--gutter-r));padding-left:var(--gutter-l);padding-right:var(--gutter-r);scrollbar-width:none}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery figure{flex:0 0 84%;scroll-snap-align:center}
+  .g-wide img,.g-tall img{aspect-ratio:4/5;height:auto}
+}
+.swipe-hint{display:none;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.9rem}
+.band-dark .swipe-hint{color:#8f8372}
+@media (max-width:860px){.swipe-hint{display:block}}
+.closing{background:var(--dark)}
+.closing img{width:100%;height:auto;aspect-ratio:5/4;object-fit:cover;max-height:80vh}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem 5rem;margin-top:3rem;align-items:start}
+.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:1.4rem}
+.contact-list .k{display:block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+.contact-list .v{font-family:var(--display);font-size:1.6rem;color:var(--ink);word-break:break-word}
+.contact-list .v a{text-decoration:none;border-bottom:1px solid var(--gold)}
+form{display:grid;gap:1.2rem}
+.field{display:grid;gap:.4rem}
+label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+input,textarea,select{font:inherit;font-size:1rem;color:var(--fg);background:transparent;border:0;border-bottom:1px solid var(--ink);padding:.6rem 0;border-radius:0;width:100%}
+textarea{min-height:5.5rem;resize:vertical}
+.form-ok{display:grid;gap:.6rem;padding:1.4rem;border:1px solid var(--gold);font-size:1rem}
+.form-ok b{font-family:var(--display);font-size:1.4rem;font-weight:400;color:var(--ink)}
+.copy{font:inherit;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;padding:.45rem .9rem;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;justify-self:start}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:2.4rem 3rem;font-size:.82rem;color:var(--muted)}
+footer .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem}
+footer svg{height:22px;width:auto;margin-bottom:1rem}
+footer p{max-width:var(--measure)}
+@media (max-width:760px){footer .inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="nav wrap">
+  <div class="inner">
+    <a class="brand" href="#top" aria-label="ÉPURE">
+      <svg viewBox="0 0 598 220" aria-hidden="true"><g transform="translate(60,70)" fill="none" stroke="currentColor" stroke-width="7" style="color:var(--ink)"><path d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/><path fill="currentColor" stroke="none" d="M22,-16 L46,-38 L50,-33 L28,-12 Z"/><path transform="translate(100,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0"/><path transform="translate(206,0)" d="M3.5,0 V70.5 A29.5,29.5 0 0 0 62.5,70.5 V0"/><path transform="translate(316,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0 M30,52 L58.5,100"/><path transform="translate(422,0)" d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/></g></svg>
+      <span data-i18n="brand.sub">Pariska 22 — Beograd</span>
+    </a>
+    <nav aria-label="Glavna navigacija">
+      <ul class="links">
+        <li><a href="#projekat" data-i18n="nav.project">Projekat</a></li>
+        <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
+        <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
+        <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
+        <li><a href="#sadrzaji" data-i18n="nav.amen">Sadržaji</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Jezik / Language">
+        <button type="button" id="lang-sr" data-lang="sr" aria-pressed="true">SR</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn" href="#kontakt" data-i18n="nav.cta">Zakažite razgovor</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Meni"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="menu-close" type="button" id="menu-close" aria-label="Zatvori">×</button>
+  <p class="menu-meta" data-i18n="brand.sub">Pariska 22 — Beograd</p>
+  <ul>
+    <li><a href="#projekat" data-i18n="nav.project">Projekat</a></li>
+    <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
+    <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
+    <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
+    <li><a href="#sadrzaji" data-i18n="nav.amen">Sadržaji</a></li>
+    <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+  </ul>
+  <div class="lang" role="group" aria-label="Jezik / Language">
+    <button type="button" data-lang="sr" aria-pressed="true">SR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</div>
+
+<main id="top">
+
+<section class="hero" id="hero" aria-label="ÉPURE">
+  <div class="slide"><picture>
+    <source media="(max-width:760px)" srcset="assets/monogram-stone.jpg">
+    <img src="assets/hero-stone.jpg" alt="Natpis ÉPURE, Pariska 22, Belgrade, urezan u prirodni kamen" width="1600" height="1067" fetchpriority="high">
+  </picture></div>
+  <div class="slide"><picture>
+    <source media="(max-width:760px)" srcset="assets/lobi-epure-2.jpg">
+    <img src="assets/lobi-epure.jpg" alt="Ulazni hol zgrade ÉPURE sa natpisom ÉPURE Pariska 22 Belgrade" width="1403" height="1121" loading="lazy">
+  </picture></div>
+  <div class="slide s3"><img src="assets/ext-ugao.jpg" alt="Render zgrade ÉPURE na uglu Pariske i Uzun Mirkove ulice u sumrak" width="1600" height="1090" loading="lazy"></div>
+  <div class="hero-over wrap"><div class="inner">
+    <p class="eyebrow" data-i18n="hero.eyebrow">18 rezidencija — Stari grad, Beograd</p>
+    <svg viewBox="0 0 598 220" role="img" aria-label="ÉPURE"><g transform="translate(60,70)" fill="none" stroke="#efe8dc" stroke-width="7"><path d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/><path fill="#efe8dc" stroke="none" d="M22,-16 L46,-38 L50,-33 L28,-12 Z"/><path transform="translate(100,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0"/><path transform="translate(206,0)" d="M3.5,0 V70.5 A29.5,29.5 0 0 0 62.5,70.5 V0"/><path transform="translate(316,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0 M30,52 L58.5,100"/><path transform="translate(422,0)" d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/></g></svg>
+  </div></div>
+  <div class="cue" aria-hidden="true"></div>
+</section>
+<section aria-label="Uvod">
+  <div class="wrap"><div class="inner hero-cap rv">
+    <h1 data-i18n="hero.h1">Osamnaest gradskih rezidencija na uglu Pariske i Uzun Mirkove, uz Kalemegdan.</h1>
+    <div class="hero-meta">
+      <span data-i18n="hero.m1"><strong>Stari grad</strong>, Beograd</span>
+      <span data-i18n="hero.m2">Stambeno-poslovni objekat</span>
+      <span data-i18n="hero.m3">Investitor <strong>PurEstate d.o.o.</strong></span>
+    </div>
+  </div></div>
+</section>
+
+<section id="projekat" class="section wrap">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="p.eyebrow">Projekat</p>
+        <h2 data-i18n="p.h2">Svedena forma. Prirodni kamen. Adresa koja se ne ponavlja.</h2>
+      </div>
+      <div class="stack text">
+        <p class="lead" data-i18n="p.lead">ÉPURE je stambeno-poslovni objekat na uglu Pariske i Uzun Mirkove ulice, u neposrednom kontaktu sa Kalemegdanom i istorijskim jezgrom Beograda.</p>
+        <p data-i18n="p.t1">Savremena arhitektura, naglašen ugaoni ulaz i svedena materijalizacija oblikuju prepoznatljivu gradsku adresu. U objektu je svega osamnaest prostranih rezidencija, po tri na etažama od prvog do petog sprata, dve na šestom i jedna na povučenoj etaži, što donosi privatnost koju veliki stambeni kompleksi ne mogu da ponude.</p>
+        <p data-i18n="p.t2">Arhitektura spaja savremenu jednostavnost, prirodni kamen i pažljivo projektovane zajedničke prostore: reprezentativni lobi sa recepcijom, podzemnu garažu i planirani wellness centar.</p>
+      </div>
+    </div>
+    <div class="figures rv" role="list" aria-label="Ključni podaci">
+      <div class="fig" role="listitem"><b data-count="18">18</b><span data-i18n="f.1">Rezidencija</span></div>
+      <div class="fig" role="listitem"><b data-count="39">39</b><span data-i18n="f.2">Parking mesta u garaži</span></div>
+      <div class="fig" role="listitem"><b data-i18n="f.3n">3,91<small> m</small></b><span data-i18n="f.3">Spratna visina</span></div>
+      <div class="fig" role="listitem"><b data-i18n="f.4n">4.046<small> m²</small></b><span data-i18n="f.4">Neto površina stanova</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="band-img" aria-hidden="true"><img src="assets/hero-stone.jpg" alt="" width="1600" height="1067" loading="lazy"></div>
+
+<section id="lokacija" class="section wrap band">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="l.eyebrow">Lokacija</p>
+        <h2 data-i18n="l.h2">Pariska 22, ugao Uzun Mirkove.</h2>
+      </div>
+      <p class="lead" data-i18n="l.lead">Nekoliko koraka od Kalemegdana, Knez Mihailove i Saborne crkve. Kolski pristup garaži iz Uzun Mirkove ulice, pešački ulaz kroz ugaoni portal iz Pariske.</p>
+    </div>
+    <div class="loc-grid rv">
+      <div class="map" role="img" aria-label="Shematski prikaz položaja: ugao Pariske i Uzun Mirkove ulice, Kalemegdan na severozapadu">
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--gold)" stroke-width=".6" opacity=".55"/></pattern></defs>
+          <rect width="400" height="400" fill="var(--bg-2)"/>
+          <path d="M0,0 L190,0 C170,70 120,120 40,150 L0,150 Z" fill="url(#hatch)"/>
+          <text x="38" y="52" font-family="Jost,Arial,sans-serif" font-size="10" letter-spacing="2.5" fill="var(--ink)">KALEMEGDAN</text>
+          <line x1="60" y1="400" x2="300" y2="40" stroke="var(--ink)" stroke-width="18" opacity=".12"/>
+          <line x1="40" y1="190" x2="400" y2="310" stroke="var(--ink)" stroke-width="18" opacity=".12"/>
+          <text transform="translate(238,150) rotate(-56)" font-family="Jost,Arial,sans-serif" font-size="9.5" letter-spacing="2.5" fill="var(--muted)">UZUN MIRKOVA</text>
+          <text transform="translate(60,206) rotate(18.4)" font-family="Jost,Arial,sans-serif" font-size="9.5" letter-spacing="2.5" fill="var(--muted)">PARISKA</text>
+          <path d="M193,230 L240,160 L286,176 L246,246 Z" fill="var(--ink)"/>
+          <circle cx="241" cy="203" r="26" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+          <text x="241" y="207" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="20" fill="var(--bg)">É</text>
+          <text x="300" y="262" font-family="Jost,Arial,sans-serif" font-size="9.5" letter-spacing="2.5" fill="var(--ink)">PARISKA 22</text>
+          <text x="20" y="378" font-family="Jost,Arial,sans-serif" font-size="8.5" letter-spacing="2" fill="var(--muted)" data-i18n="l.mapnote">SHEMATSKI PRIKAZ, NIJE U RAZMERI</text>
+        </svg>
+      </div>
+      <ul class="loc-list">
+        <li><span class="k" data-i18n="l.k1">Adresa</span><span data-i18n="l.v1">Pariska 22, 11000 Beograd</span></li>
+        <li><span class="k" data-i18n="l.k2">Položaj</span><span data-i18n="l.v2">Ugao Pariske i Uzun Mirkove ulice, opština Stari grad</span></li>
+        <li><span class="k" data-i18n="l.k3">Parcela</span><span data-i18n="l.v3">Katastarska parcela 705/1, KO Stari grad, površine 1.150 m²</span></li>
+        <li><span class="k" data-i18n="l.k4">Namena</span><span data-i18n="l.v4">Stambeno-poslovni objekat, 4Po + Pr + 6 + Ps</span></li>
+        <li><span class="k" data-i18n="l.k5">Garaža</span><span data-i18n="l.v5">Kolski pristup iz Uzun Mirkove, nivoi −1 i −2</span></li>
+        <li><span class="k" data-i18n="l.k6">Mapa</span><span><a href="https://www.google.com/maps/search/?api=1&query=Pariska+22+Beograd" target="_blank" rel="noopener" data-i18n="l.v6">Otvorite u Google mapama</a></span></li>
+      </ul>
+    </div>
+    <figure class="loc-photo rv">
+      <img src="assets/ext-ulica.jpg" alt="Render zgrade ÉPURE iz Pariske ulice, uz susednu istorijsku fasadu i tramvajsku stanicu" width="1600" height="1107" loading="lazy">
+      <figcaption class="caption" data-i18n="l.cap">Pogled iz Pariske ulice, uz istorijsko jezgro Starog grada</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="arhitektura" class="section wrap">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="a.eyebrow">Arhitektura i materijali</p>
+        <h2 data-i18n="a.h2">Kamen Visočica, staklo i izražene horizontale.</h2>
+      </div>
+      <p class="lead" data-i18n="a.lead">Ventilisana fasada sa završnom oblogom od prirodnog kamena, povučene najviše etaže i reprezentativni ulazni portal. Savremena, svedena arhitektura projektovana da traje.</p>
+    </div>
+    <div class="arch rv">
+      <img src="assets/ext-detalj.jpg" alt="Detalj fasade: kamene lođe sa zelenilom, vertikalne lamele uz ulaz i osvetljeni poslovni prostor u prizemlju" width="1200" height="1600" loading="lazy">
+      <ul class="spec">
+        <li><span class="k" data-i18n="a.k1">Fasada</span><span class="v" data-i18n="a.v1">Ventilisana fasada sa završnom oblogom od prirodnog kamena Visočica</span></li>
+        <li><span class="k" data-i18n="a.k2">Stolarija</span><span class="v" data-i18n="a.v2">Aluminijumska fasadna stolarija Reynaers, projektovano troslojno termoizolaciono zastakljenje</span></li>
+        <li><span class="k" data-i18n="a.k3">Terase i lođe</span><span class="v" data-i18n="a.v3">Staklene ograde sa sigurnosnim laminiranim staklom</span></li>
+        <li><span class="k" data-i18n="a.k4">Grejanje i hlađenje</span><span class="v" data-i18n="a.v4">Sistem toplotnih pumpi, savremena i efikasna klimatizacija svih rezidencija</span></li>
+        <li><span class="k" data-i18n="a.k5">Spratna visina</span><span class="v" data-i18n="a.v5">3,91 m na nadzemnim etažama</span></li>
+        <li><span class="k" data-i18n="a.k6">Završne obrade</span><span class="v" data-i18n="a.v6">Materijali i oprema premijum klase. Specifikacija proizvođača objavljuje se po odobrenju.</span></li>
+        <li><span class="k" data-i18n="a.k7">Projekat</span><span class="v" data-i18n="a.v7">ELKOMS d.o.o., odgovorni projektant Branka Mićić, d.i.a.</span></li>
+      </ul>
+    </div>
+    <div class="trio rv">
+      <img src="assets/ext-front.jpg" alt="Frontalni pogled na fasadu ÉPURE sa Pariske ulice" width="1600" height="1066" loading="lazy">
+      <img src="assets/ext-ugao-2.jpg" alt="Ugaoni pogled na zgradu sa Uzun Mirkove ulice" width="1600" height="1066" loading="lazy">
+      <img src="assets/ext-ugao-3.jpg" alt="Zgrada ÉPURE u sumrak, pogled na ugaoni ulaz" width="1600" height="1066" loading="lazy">
+    </div>
+    <p class="swipe-hint" data-i18n="swipe">Prevucite za još prikaza →</p>
+  </div>
+</section>
+
+<section id="rezidencije" class="section wrap band">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="r.eyebrow">Rezidencije</p>
+        <h2 data-i18n="r.h2">Osamnaest stanova, od 159 do 447 m².</h2>
+      </div>
+      <p class="lead" data-i18n="r.lead">Trosobni, četvorosobni, petosobni i jedan sedmosobni penthaus na povučenoj etaži. Svaka rezidencija ima stanarsku ostavu na nivou −3 i pristup garaži.</p>
+    </div>
+
+    <div class="floors rv" role="list" aria-label="Raspored po etažama">
+      <div class="floor" role="listitem"><b>I – V</b><span data-i18n="fl.1">po tri stana na etaži</span></div>
+      <div class="floor" role="listitem"><b>VI</b><span data-i18n="fl.2">dva stana</span></div>
+      <div class="floor" role="listitem"><b>Ps</b><span data-i18n="fl.3">jedan penthaus, 446,80 m²</span></div>
+      <div class="floor" role="listitem"><b>−1, −2</b><span data-i18n="fl.4">garaža, 39 mesta</span></div>
+      <div class="floor" role="listitem"><b>−3</b><span data-i18n="fl.5">18 stanarskih ostava</span></div>
+      <div class="floor" role="listitem"><b>−4</b><span data-i18n="fl.6">wellness, planirano</span></div>
+    </div>
+
+    <div class="filters rv" role="group" aria-label="Filtriraj po strukturi">
+      <button class="chip" type="button" data-f="sve" aria-pressed="true" data-i18n="c.all">Sve</button>
+      <button class="chip" type="button" data-f="trosoban" aria-pressed="false" data-i18n="c.3">Trosobni</button>
+      <button class="chip" type="button" data-f="četvorosoban" aria-pressed="false" data-i18n="c.4">Četvorosobni</button>
+      <button class="chip" type="button" data-f="petosoban" aria-pressed="false" data-i18n="c.5">Petosobni</button>
+      <button class="chip" type="button" data-f="sedmosoban" aria-pressed="false" data-i18n="c.7">Sedmosobni</button>
+    </div>
+
+    <div class="tbl-wrap rv">
+      <table id="stanovi">
+        <thead><tr><th data-i18n="th.1">Stan</th><th data-i18n="th.2">Sprat</th><th data-i18n="th.3">Struktura</th><th class="num" data-i18n="th.4">Neto m²</th></tr></thead>
+        <tbody>
+          <tr data-s="trosoban"><td class="id">ST-01</td><td>I</td><td data-i18n="s.3">trosoban</td><td class="num">174,71</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-02</td><td>I</td><td data-i18n="s.4">četvorosoban</td><td class="num">227,87</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-03</td><td>I</td><td data-i18n="s.4">četvorosoban</td><td class="num">200,13</td></tr>
+          <tr data-s="trosoban"><td class="id">ST-04</td><td>II</td><td data-i18n="s.3">trosoban</td><td class="num">172,78</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-05</td><td>II</td><td data-i18n="s.4">četvorosoban</td><td class="num">240,69</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-06</td><td>II</td><td data-i18n="s.4">četvorosoban</td><td class="num">200,84</td></tr>
+          <tr data-s="trosoban"><td class="id">ST-07</td><td>III</td><td data-i18n="s.3">trosoban</td><td class="num">158,79</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-08</td><td>III</td><td data-i18n="s.4">četvorosoban</td><td class="num">225,43</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-09</td><td>III</td><td data-i18n="s.4">četvorosoban</td><td class="num">199,83</td></tr>
+          <tr data-s="trosoban"><td class="id">ST-10</td><td>IV</td><td data-i18n="s.3">trosoban</td><td class="num">159,47</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-11</td><td>IV</td><td data-i18n="s.4">četvorosoban</td><td class="num">253,19</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-12</td><td>IV</td><td data-i18n="s.4">četvorosoban</td><td class="num">198,20</td></tr>
+          <tr data-s="trosoban"><td class="id">ST-13</td><td>V</td><td data-i18n="s.3">trosoban</td><td class="num">159,47</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-14</td><td>V</td><td data-i18n="s.4">četvorosoban</td><td class="num">236,31</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-15</td><td>V</td><td data-i18n="s.4">četvorosoban</td><td class="num">201,16</td></tr>
+          <tr data-s="četvorosoban"><td class="id">ST-16</td><td>VI</td><td data-i18n="s.4">četvorosoban</td><td class="num">342,13</td></tr>
+          <tr data-s="petosoban"><td class="id">ST-17</td><td>VI</td><td data-i18n="s.5">petosoban</td><td class="num">248,14</td></tr>
+          <tr data-s="sedmosoban"><td class="id">ST-18</td><td>Ps</td><td data-i18n="s.7">sedmosoban</td><td class="num">446,80</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-note" data-i18n="r.note">Površine su date prema specifikaciji posebnih delova iz projekta za građevinsku dozvolu i nisu ugovorene prodajne površine. Osnove pojedinačnih stanova dostupne su na upit.</p>
+  </div>
+</section>
+
+<section id="sadrzaji" class="section wrap band-dark">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="z.eyebrow">Zajednički sadržaji</p>
+        <h2 data-i18n="z.h2">Dolazak kroz reprezentativni lobi.</h2>
+      </div>
+      <p class="lead" data-i18n="z.lead">Kontrolisan pristup, prostor za recepciju i obezbeđenje, dva lifta i garaža na dva podzemna nivoa. Sve što ovakva adresa podrazumeva.</p>
+    </div>
+    <div class="amen rv">
+      <div><span class="n">01</span><h3 data-i18n="z.h1">Lobi i recepcija</h3><p data-i18n="z.p1">Reprezentativni ulazni hol sa kontrolisanim pristupom i prostorom za recepciju i obezbeđenje.</p></div>
+      <div><span class="n">02</span><h3 data-i18n="z.h2b">Dva lifta</h3><p data-i18n="z.p2">Liftovi za stambeni deo objekta, projektovane nosivosti 1.275 kg i 630 kg.</p></div>
+      <div><span class="n">03</span><h3 data-i18n="z.h3">Garaža i ostave</h3><p data-i18n="z.p3">39 parking mesta na nivoima −1 i −2 sa pristupom iz Uzun Mirkove. Stanarske ostave na nivou −3.</p></div>
+      <div><span class="n">04</span><h3 data-i18n="z.h4">Wellness</h3><p data-i18n="z.p4">Planiran na nivou −4, sa zasebnim vertikalnim pristupom iz poslovnog prostora.</p></div>
+      <div><span class="n">05</span><h3 data-i18n="z.h5">Poslovni prostor</h3><p data-i18n="z.p5">1.175 m² neto poslovnog prostora u prizemlju, uz ugaoni ulaz sa Pariske.</p></div>
+      <div><span class="n">06</span><h3 data-i18n="z.h6">Termotehnički komfor</h3><p data-i18n="z.p6">Grejanje i hlađenje svih rezidencija preko sistema toplotnih pumpi.</p></div>
+    </div>
+    <div class="gallery rv">
+      <figure class="g-wide"><img src="assets/lobi-ulaz.jpg" alt="Ulazni hol: perforirane metalne zavese, kožne fotelje i skulptura uz ulazni portal" width="1600" height="1280" loading="lazy"><figcaption data-i18n="g.1">Ulazni hol</figcaption></figure>
+      <figure class="g-tall"><img src="assets/lobi-monogram.jpg" alt="Recepcija sa monogramom É na zidu od kamena" width="1121" height="1403" loading="lazy"><figcaption data-i18n="g.2">Recepcija</figcaption></figure>
+      <figure class="g-tall"><img src="assets/lobi-salon.jpg" alt="Salon u lobiju sa maslinom i velikom lampom" width="1280" height="1600" loading="lazy"><figcaption data-i18n="g.3">Salon</figcaption></figure>
+      <figure class="g-wide"><img src="assets/lobi-liftovi.jpg" alt="Dva lifta u bronzanoj oblozi i recepcijski pult od kamena" width="1600" height="1280" loading="lazy"><figcaption data-i18n="g.4">Liftovi i recepcija</figcaption></figure>
+      <figure class="g-wide"><img src="assets/lobi-hodnik.jpg" alt="Hodnik lobija sa kamenim zidovima i liftovima" width="1600" height="1280" loading="lazy"><figcaption data-i18n="g.5">Prilaz liftovima</figcaption></figure>
+      <figure class="g-tall"><img src="assets/lobi-recepcija.jpg" alt="Recepcijski pult od masivnog kamena ispred reljefnog zida" width="1280" height="1600" loading="lazy"><figcaption data-i18n="g.6">Pult od kamena</figcaption></figure>
+    </div>
+    <p class="swipe-hint" data-i18n="swipe">Prevucite za još prikaza →</p>
+  </div>
+</section>
+
+<section id="kontakt" class="section wrap">
+  <div class="inner">
+    <div class="section-head rv">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="k.eyebrow">Kontakt</p>
+        <h2 data-i18n="k.h2">Zakažite razgovor i obilazak.</h2>
+      </div>
+      <p class="lead" data-i18n="k.lead">Pošaljite upit sa strukturom koja vas zanima. Javljamo se u roku od jednog radnog dana sa osnovama i dostupnošću.</p>
+    </div>
+    <div class="contact rv">
+      <ul class="contact-list">
+        <li><span class="k" data-i18n="k.k1">E-pošta</span><span class="v" id="mail"><a href="mailto:info@epure-estate.com">info@epure-estate.com</a></span></li>
+        <li><span class="k" data-i18n="k.k2">Adresa projekta</span><span class="v" data-i18n="k.v2">Pariska 22, Beograd</span></li>
+        <li><span class="k" data-i18n="k.k3">Investitor</span><span class="v">PurEstate d.o.o.</span></li>
+      </ul>
+      <form id="upit" novalidate>
+        <div class="field"><label for="ime" data-i18n="fm.name">Ime i prezime</label><input id="ime" name="ime" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="email" data-i18n="fm.email">E-pošta</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="tel" data-i18n="fm.tel">Telefon</label><input id="tel" name="tel" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="struktura" data-i18n="fm.type">Struktura koja vas zanima</label>
+          <select id="struktura" name="struktura">
+            <option value="3" data-i18n="o.3">Trosoban</option><option value="4" data-i18n="o.4">Četvorosoban</option><option value="5" data-i18n="o.5">Petosoban</option><option value="ph" data-i18n="o.ph">Penthaus</option><option value="biz" data-i18n="o.biz">Poslovni prostor</option>
+          </select></div>
+        <div class="field"><label for="poruka" data-i18n="fm.msg">Poruka</label><textarea id="poruka" name="poruka"></textarea></div>
+        <div><button class="btn solid" type="submit" data-i18n="fm.send">Pošaljite upit</button></div>
+      </form>
+      <div class="form-ok" id="ok" hidden>
+        <b data-i18n="ok.h">Hvala na interesovanju.</b>
+        <p data-i18n="ok.p">Upit je pripremljen u vašem programu za e-poštu. Ako se nije otvorio, pošaljite poruku na adresu ispod.</p>
+        <p id="ok-mail">info@epure-estate.com</p>
+        <button class="copy" type="button" id="copy" data-i18n="ok.copy">Kopiraj adresu</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="closing" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/lobi-epure-2.jpg"><img src="assets/lobi-epure.jpg" alt="" width="1403" height="1121" loading="lazy"></picture></div>
+
+</main>
+
+<div class="mcta"><a href="#kontakt" data-i18n="nav.cta">Zakažite razgovor</a></div>
+
+<footer class="wrap">
+  <div class="inner">
+    <div>
+      <svg viewBox="0 0 598 220" aria-hidden="true"><g transform="translate(60,70)" fill="none" stroke="currentColor" stroke-width="7" style="color:var(--ink)"><path d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/><path fill="currentColor" stroke="none" d="M22,-16 L46,-38 L50,-33 L28,-12 Z"/><path transform="translate(100,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0"/><path transform="translate(206,0)" d="M3.5,0 V70.5 A29.5,29.5 0 0 0 62.5,70.5 V0"/><path transform="translate(316,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0 M30,52 L58.5,100"/><path transform="translate(422,0)" d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/></g></svg>
+      <p data-i18n="ft.1">ÉPURE, Pariska 22, Beograd. Investitor PurEstate d.o.o. Projekat arhitekture ELKOMS d.o.o., broj 82/21.</p>
+    </div>
+    <p data-i18n="ft.2">Prikazani podaci potiču iz projekta za građevinsku dozvolu i mogu biti predmet izmena. Recepcija, obezbeđenje i wellness su planirani sadržaji. Vizuelni prikazi su ilustrativni.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- prevod / translation ---------- */
+  var EN={
+    'brand.sub':'Pariska 22 — Belgrade',
+    'nav.project':'The project','nav.location':'Location','nav.arch':'Architecture','nav.res':'Residences','nav.amen':'Amenities','nav.contact':'Contact','nav.cta':'Book a viewing',
+    'hero.eyebrow':'18 residences — Stari grad, Belgrade','swipe':'Swipe for more views →',
+    'hero.h1':'Eighteen city residences on the corner of Pariska and Uzun Mirkova, beside Kalemegdan.',
+    'hero.m1':'<strong>Stari grad</strong>, Belgrade','hero.m2':'Residential and commercial building','hero.m3':'Developer <strong>PurEstate d.o.o.</strong>',
+    'p.eyebrow':'The project','p.h2':'Pure form. Natural stone. An address that cannot be repeated.',
+    'p.lead':'ÉPURE is a residential and commercial building on the corner of Pariska and Uzun Mirkova streets, in direct contact with Kalemegdan and the historic core of Belgrade.',
+    'p.t1':'Contemporary architecture, a pronounced corner entrance and restrained materials shape a recognisable city address. The building holds only eighteen spacious residences, three on each of floors one to five, two on the sixth and one on the set-back top floor, offering a privacy that large residential complexes cannot.',
+    'p.t2':'The architecture brings together contemporary simplicity, natural stone and carefully designed shared spaces: a representative lobby with reception, an underground garage and a planned wellness centre.',
+    'f.1':'Residences','f.2':'Garage parking spaces','f.3n':'3.91<small> m</small>','f.3':'Floor-to-floor height','f.4n':'4,046<small> m²</small>','f.4':'Net residential area',
+    'l.eyebrow':'Location','l.h2':'Pariska 22, corner of Uzun Mirkova.',
+    'l.lead':'A few steps from Kalemegdan, Knez Mihailova and the Cathedral Church. Vehicle access to the garage from Uzun Mirkova, pedestrian entrance through the corner portal on Pariska.',
+    'l.mapnote':'SCHEMATIC, NOT TO SCALE',
+    'l.k1':'Address','l.v1':'Pariska 22, 11000 Belgrade',
+    'l.k2':'Position','l.v2':'Corner of Pariska and Uzun Mirkova streets, Stari grad municipality',
+    'l.k3':'Plot','l.v3':'Cadastral plot 705/1, Stari grad, 1,150 m²',
+    'l.k4':'Use','l.v4':'Residential and commercial, 4 basement + ground + 6 + penthouse',
+    'l.k5':'Garage','l.v5':'Vehicle access from Uzun Mirkova, levels −1 and −2',
+    'l.k6':'Map','l.v6':'Open in Google Maps',
+    'l.cap':'View from Pariska street, within the historic core of Stari grad',
+    'a.eyebrow':'Architecture and materials','a.h2':'Visočica stone, glass and strong horizontals.',
+    'a.lead':'A ventilated façade clad in natural stone, set-back upper floors and a representative entrance portal. Contemporary, restrained architecture designed to last.',
+    'a.k1':'Façade','a.v1':'Ventilated façade finished in natural Visočica stone',
+    'a.k2':'Windows','a.v2':'Reynaers aluminium façade joinery with triple thermal-insulation glazing',
+    'a.k3':'Terraces and loggias','a.v3':'Glass balustrades in laminated safety glass',
+    'a.k4':'Heating and cooling','a.v4':'Heat-pump system, modern and efficient climate control in every residence',
+    'a.k5':'Floor height','a.v5':'3.91 m floor-to-floor on the above-ground levels',
+    'a.k6':'Finishes','a.v6':'Premium-class materials and fittings. The manufacturer specification is published once approved.',
+    'a.k7':'Design','a.v7':'ELKOMS d.o.o., lead architect Branka Mićić, d.i.a.',
+    'r.eyebrow':'Residences','r.h2':'Eighteen apartments, from 159 to 447 m².',
+    'r.lead':'Three-, four- and five-room residences and a single seven-room penthouse on the set-back top floor. Every residence has a storage room on level −3 and access to the garage.',
+    'fl.1':'three apartments per floor','fl.2':'two apartments','fl.3':'one penthouse, 446.80 m²','fl.4':'garage, 39 spaces','fl.5':'18 storage rooms','fl.6':'wellness, planned',
+    'c.all':'All','c.3':'Three-room','c.4':'Four-room','c.5':'Five-room','c.7':'Seven-room',
+    'th.1':'Unit','th.2':'Floor','th.3':'Layout','th.4':'Net m²',
+    's.3':'three-room','s.4':'four-room','s.5':'five-room','s.7':'seven-room',
+    'r.note':'Areas follow the schedule of separate units in the building-permit design and are not contractual sales areas. Floor plans of individual apartments are available on request.',
+    'z.eyebrow':'Amenities','z.h2':'Arrival through a representative lobby.',
+    'z.lead':'Controlled access, space for reception and security, two lifts and a garage on two underground levels. Everything an address like this implies.',
+    'z.h1':'Lobby and reception','z.p1':'A representative entrance hall with controlled access and space for reception and security.',
+    'z.h2b':'Two lifts','z.p2':'Lifts serving the residential part of the building, rated at 1,275 kg and 630 kg.',
+    'z.h3':'Garage and storage','z.p3':'39 parking spaces on levels −1 and −2 with access from Uzun Mirkova. Residents’ storage rooms on level −3.',
+    'z.h4':'Wellness','z.p4':'Planned on level −4, with separate vertical access from the commercial space.',
+    'z.h5':'Commercial space','z.p5':'1,175 m² of net commercial space on the ground floor, beside the corner entrance on Pariska.',
+    'z.h6':'Climate comfort','z.p6':'Heating and cooling of every residence through a heat-pump system.',
+    'g.1':'Entrance hall','g.2':'Reception','g.3':'Lounge','g.4':'Lifts and reception','g.5':'Approach to the lifts','g.6':'Stone reception desk',
+    'k.eyebrow':'Contact','k.h2':'Book a conversation and a viewing.',
+    'k.lead':'Send an enquiry with the layout you are interested in. We reply within one working day with floor plans and availability.',
+    'k.k1':'Email','k.k2':'Project address','k.v2':'Pariska 22, Belgrade','k.k3':'Developer',
+    'fm.name':'Full name','fm.email':'Email','fm.tel':'Phone','fm.type':'Layout you are interested in','fm.msg':'Message','fm.send':'Send enquiry',
+    'o.3':'Three-room','o.4':'Four-room','o.5':'Five-room','o.ph':'Penthouse','o.biz':'Commercial space',
+    'ok.h':'Thank you for your interest.','ok.p':'The enquiry has been prepared in your email client. If it did not open, write to the address below.','ok.copy':'Copy address',
+    'ft.1':'ÉPURE, Pariska 22, Belgrade. Developer PurEstate d.o.o. Architectural design ELKOMS d.o.o., no. 82/21.',
+    'ft.2':'The information shown comes from the building-permit design and may be subject to change. Reception, security and wellness are planned amenities. Visualisations are illustrative.'
+  };
+  var META={sr:'ÉPURE, kolekcija od 18 gradskih rezidencija na uglu Pariske i Uzun Mirkove ulice, uz Kalemegdan, Beograd.',en:'ÉPURE, a collection of 18 city residences on the corner of Pariska and Uzun Mirkova streets, beside Kalemegdan, Belgrade.'};
+  var SR={};
+  var nodes=document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function(n){SR[n.getAttribute('data-i18n')]=n.innerHTML});
+  var lang='sr';
+  function setLang(l){
+    lang=l;
+    var dict=l==='en'?EN:SR;
+    nodes.forEach(function(n){var k=n.getAttribute('data-i18n');if(dict[k]!==undefined)n.innerHTML=dict[k]});
+    document.documentElement.lang=l;
+    document.getElementById('meta-desc').setAttribute('content',META[l]);
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l?'true':'false')});
+    try{localStorage.setItem('epure-lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'))})});
+  var want=null;
+  if(location.hash==='#en')want='en';else if(location.hash==='#sr')want='sr';
+  if(!want){try{want=localStorage.getItem('epure-lang')}catch(e){}}
+  if(!want&&navigator.language&&!/^(sr|hr|bs|sl|mk)/i.test(navigator.language))want='en';
+  if(want==='en')setLang('en');
+
+  /* ---------- mobilni meni ---------- */
+  var menu=document.getElementById('menu'),burger=document.getElementById('burger');
+  function openMenu(o){menu.classList.toggle('open',o);menu.setAttribute('aria-hidden',o?'false':'true');burger.setAttribute('aria-expanded',o?'true':'false');document.body.classList.toggle('locked',o)}
+  burger.addEventListener('click',function(){openMenu(!menu.classList.contains('open'))});
+  document.getElementById('menu-close').addEventListener('click',function(){openMenu(false)});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){openMenu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')openMenu(false)});
+
+  /* ---------- hero: logo overlay only on the building slide ---------- */
+  var hero=document.getElementById('hero');
+  function heroTick(){var t=(performance.now()/1000)%21;hero.classList.toggle('on-building',t>=14.5&&t<21.5)}
+  if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(heroTick,500)}
+
+  /* ---------- reveal + brojevi ---------- */
+  document.documentElement.classList.add('js');
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    rv.forEach(function(n){io.observe(n)});
+    setTimeout(function(){rv.forEach(function(n){n.classList.add('in')})},2500);
+  }else{rv.forEach(function(n){n.classList.add('in')})}
+  var counted=false;
+  function countUp(){
+    if(counted)return;counted=true;
+    document.querySelectorAll('[data-count]').forEach(function(b){
+      var end=parseInt(b.getAttribute('data-count'),10),t0=null;
+      function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/1100);p=1-Math.pow(1-p,3);b.textContent=Math.round(end*p);if(p<1)requestAnimationFrame(step)}
+      requestAnimationFrame(step);
+    });
+  }
+  var figs=document.querySelector('.figures');
+  if(figs&&'IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){countUp();o.disconnect()}},{threshold:.3}).observe(figs)}
+
+  /* ---------- filter ---------- */
+  var chips=document.querySelectorAll('.chip'),rows=document.querySelectorAll('#stanovi tbody tr');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});
+    var f=c.getAttribute('data-f');
+    rows.forEach(function(r){r.hidden=(f!=='sve'&&r.getAttribute('data-s')!==f)});
+  })});
+
+  /* ---------- forma ---------- */
+  var form=document.getElementById('upit'),ok=document.getElementById('ok'),mail='info@epure-estate.com';
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.ime.value.trim()||!form.email.value.trim()){form.reportValidity();return}
+    var sel=form.struktura,typ=sel.options[sel.selectedIndex].text;
+    var L=lang==='en'?{n:'Name',e:'Email',t:'Phone',s:'Layout',sub:'ÉPURE Pariska 22 enquiry, '}:{n:'Ime',e:'E-pošta',t:'Telefon',s:'Struktura',sub:'Upit ÉPURE Pariska 22, '};
+    var body=L.n+': '+form.ime.value+'\n'+L.e+': '+form.email.value+'\n'+L.t+': '+form.tel.value+'\n'+L.s+': '+typ+'\n\n'+form.poruka.value;
+    var href='mailto:'+mail+'?subject='+encodeURIComponent(L.sub+typ)+'&body='+encodeURIComponent(body);
+    form.hidden=true;ok.hidden=false;
+    try{window.location.href=href}catch(err){}
+  });
+  document.getElementById('copy').addEventListener('click',function(){
+    var b=this,was=b.textContent;
+    function done(){b.textContent=lang==='en'?'Copied':'Kopirano';setTimeout(function(){b.textContent=was},1800)}
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('ok-mail'));var s=window.getSelection();s.removeAllRanges();s.addRange(r)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(mail).then(done).catch(sel)}else{sel()}
+  });
+})();
+</script>
+</body>
+</html>
