@@ -247,6 +247,24 @@ textarea{min-height:5.5rem;resize:vertical}
 .copy{font:inherit;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;padding:.45rem .9rem;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;justify-self:start}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
+
+/* tabs */
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:3rem}
+.tile{position:relative;display:block;aspect-ratio:3/4;overflow:hidden;text-decoration:none;color:#efe8dc;background:var(--dark)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1);opacity:.92}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.06)}
+.tile span{position:absolute;inset:auto 0 0 0;padding:1.2rem;background:linear-gradient(to top,rgba(20,18,15,.85),rgba(20,18,15,0));display:grid;gap:.25rem}
+.tile em{font-style:normal;font-family:var(--display);font-size:1.7rem;font-weight:300;line-height:1.1}
+.tile small{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#d9c9a6}
+@media (max-width:860px){.tiles{grid-template-columns:1fr 1fr;gap:.6rem}.tile{aspect-ratio:4/5}.tile span{padding:.9rem}.tile em{font-size:1.35rem}.tile small{font-size:.62rem}}
+.next{display:flex;flex-direction:column;gap:.3rem;margin-top:clamp(3rem,7vw,5rem);padding-top:1.6rem;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.next strong{font-family:var(--display);font-weight:300;font-size:clamp(2rem,5vw,3rem);color:var(--ink);line-height:1.1}
+.next strong::after{content:" →";color:var(--gold)}
+.band-dark .next{border-color:#3a352f}.band-dark .next strong{color:var(--on-dark)}
+.tab-head{padding-top:1rem}
+.links a[aria-current="page"],.menu a[aria-current="page"]{border-bottom-color:var(--gold)}
+.menu a[aria-current="page"]{color:var(--gold)}
+
 /* footer */
 footer{border-top:1px solid var(--line);padding-block:2.4rem 3rem;font-size:.82rem;color:var(--muted)}
 footer .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem}
@@ -259,13 +277,13 @@ footer p{max-width:var(--measure)}
 
 <header class="nav wrap">
   <div class="inner">
-    <a class="brand" href="#top" aria-label="ÉPURE">
+    <a class="brand" href="#pocetna" aria-label="ÉPURE">
       <svg viewBox="0 0 598 220" aria-hidden="true"><g transform="translate(60,70)" fill="none" stroke="currentColor" stroke-width="7" style="color:var(--ink)"><path d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/><path fill="currentColor" stroke="none" d="M22,-16 L46,-38 L50,-33 L28,-12 Z"/><path transform="translate(100,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0"/><path transform="translate(206,0)" d="M3.5,0 V70.5 A29.5,29.5 0 0 0 62.5,70.5 V0"/><path transform="translate(316,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0 M30,52 L58.5,100"/><path transform="translate(422,0)" d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/></g></svg>
       <span data-i18n="brand.sub">Pariska 22 — Beograd</span>
     </a>
     <nav aria-label="Glavna navigacija">
       <ul class="links">
-        <li><a href="#projekat" data-i18n="nav.project">Projekat</a></li>
+        <li><a href="#pocetna" data-i18n="nav.home">Početna</a></li>
         <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
         <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
         <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
@@ -287,7 +305,7 @@ footer p{max-width:var(--measure)}
   <button class="menu-close" type="button" id="menu-close" aria-label="Zatvori">×</button>
   <p class="menu-meta" data-i18n="brand.sub">Pariska 22 — Beograd</p>
   <ul>
-    <li><a href="#projekat" data-i18n="nav.project">Projekat</a></li>
+    <li><a href="#pocetna" data-i18n="nav.home">Početna</a></li>
     <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
     <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
     <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
@@ -302,7 +320,7 @@ footer p{max-width:var(--measure)}
 
 <main id="top">
 
-<section class="hero" id="hero" aria-label="ÉPURE">
+<section class="hero" id="hero" aria-label="ÉPURE" data-tab="pocetna">
   <div class="slide"><picture>
     <source media="(max-width:760px)" srcset="assets/monogram-stone.jpg">
     <img src="assets/hero-stone.jpg" alt="Natpis ÉPURE, Pariska 22, Belgrade, urezan u prirodni kamen" width="1600" height="1067" fetchpriority="high">
@@ -318,7 +336,7 @@ footer p{max-width:var(--measure)}
   </div></div>
   <div class="cue" aria-hidden="true"></div>
 </section>
-<section aria-label="Uvod">
+<section aria-label="Uvod" data-tab="pocetna">
   <div class="wrap"><div class="inner hero-cap rv">
     <h1 data-i18n="hero.h1">Osamnaest gradskih rezidencija na uglu Pariske i Uzun Mirkove, uz Kalemegdan.</h1>
     <div class="hero-meta">
@@ -329,7 +347,7 @@ footer p{max-width:var(--measure)}
   </div></div>
 </section>
 
-<section id="projekat" class="section wrap">
+<section id="projekat" class="section wrap" data-tab="pocetna">
   <div class="inner">
     <div class="section-head rv">
       <div class="stack">
@@ -348,12 +366,18 @@ footer p{max-width:var(--measure)}
       <div class="fig" role="listitem"><b data-i18n="f.3n">3,91<small> m</small></b><span data-i18n="f.3">Spratna visina</span></div>
       <div class="fig" role="listitem"><b data-i18n="f.4n">4.046<small> m²</small></b><span data-i18n="f.4">Neto površina stanova</span></div>
     </div>
+    <div class="tiles rv" role="list">
+      <a class="tile" href="#lokacija" role="listitem"><img src="assets/ext-ulica.jpg" alt="" width="1600" height="1107" loading="lazy"><span><em data-i18n="nav.location">Lokacija</em><small data-i18n="t.1">Pariska 22, uz Kalemegdan</small></span></a>
+      <a class="tile" href="#arhitektura" role="listitem"><img src="assets/ext-detalj.jpg" alt="" width="1200" height="1600" loading="lazy"><span><em data-i18n="nav.arch">Arhitektura</em><small data-i18n="t.2">Kamen Visočica, Reynaers, staklo</small></span></a>
+      <a class="tile" href="#rezidencije" role="listitem"><img src="assets/ext-front.jpg" alt="" width="1600" height="1066" loading="lazy"><span><em data-i18n="nav.res">Rezidencije</em><small data-i18n="t.3">18 stanova, od 159 do 447 m²</small></span></a>
+      <a class="tile" href="#sadrzaji" role="listitem"><img src="assets/lobi-ulaz.jpg" alt="" width="1600" height="1280" loading="lazy"><span><em data-i18n="nav.amen">Sadržaji</em><small data-i18n="t.4">Lobi, recepcija, garaža, wellness</small></span></a>
+    </div>
   </div>
 </section>
 
-<div class="band-img" aria-hidden="true"><img src="assets/hero-stone.jpg" alt="" width="1600" height="1067" loading="lazy"></div>
+<div class="band-img" aria-hidden="true" data-tab="pocetna"><img src="assets/hero-stone.jpg" alt="" width="1600" height="1067" loading="lazy"></div>
 
-<section id="lokacija" class="section wrap band">
+<section id="lokacija" class="section wrap band" data-tab="lokacija">
   <div class="inner">
     <div class="section-head rv">
       <div class="stack">
@@ -393,10 +417,11 @@ footer p{max-width:var(--measure)}
       <img src="assets/ext-ulica.jpg" alt="Render zgrade ÉPURE iz Pariske ulice, uz susednu istorijsku fasadu i tramvajsku stanicu" width="1600" height="1107" loading="lazy">
       <figcaption class="caption" data-i18n="l.cap">Pogled iz Pariske ulice, uz istorijsko jezgro Starog grada</figcaption>
     </figure>
+    <a class="next" href="#arhitektura"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.arch">Arhitektura</strong></a>
   </div>
 </section>
 
-<section id="arhitektura" class="section wrap">
+<section id="arhitektura" class="section wrap" data-tab="arhitektura">
   <div class="inner">
     <div class="section-head rv">
       <div class="stack">
@@ -423,10 +448,11 @@ footer p{max-width:var(--measure)}
       <img src="assets/ext-ugao-3.jpg" alt="Zgrada ÉPURE u sumrak, pogled na ugaoni ulaz" width="1600" height="1066" loading="lazy">
     </div>
     <p class="swipe-hint" data-i18n="swipe">Prevucite za još prikaza →</p>
+    <a class="next" href="#rezidencije"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.res">Rezidencije</strong></a>
   </div>
 </section>
 
-<section id="rezidencije" class="section wrap band">
+<section id="rezidencije" class="section wrap band" data-tab="rezidencije">
   <div class="inner">
     <div class="section-head rv">
       <div class="stack">
@@ -479,10 +505,11 @@ footer p{max-width:var(--measure)}
       </table>
     </div>
     <p class="tbl-note" data-i18n="r.note">Površine su date prema specifikaciji posebnih delova iz projekta za građevinsku dozvolu i nisu ugovorene prodajne površine. Osnove pojedinačnih stanova dostupne su na upit.</p>
+    <a class="next" href="#sadrzaji"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.amen">Sadržaji</strong></a>
   </div>
 </section>
 
-<section id="sadrzaji" class="section wrap band-dark">
+<section id="sadrzaji" class="section wrap band-dark" data-tab="sadrzaji">
   <div class="inner">
     <div class="section-head rv">
       <div class="stack">
@@ -508,10 +535,11 @@ footer p{max-width:var(--measure)}
       <figure class="g-tall"><img src="assets/lobi-recepcija.jpg" alt="Recepcijski pult od masivnog kamena ispred reljefnog zida" width="1280" height="1600" loading="lazy"><figcaption data-i18n="g.6">Pult od kamena</figcaption></figure>
     </div>
     <p class="swipe-hint" data-i18n="swipe">Prevucite za još prikaza →</p>
+    <a class="next" href="#kontakt"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.contact">Kontakt</strong></a>
   </div>
 </section>
 
-<section id="kontakt" class="section wrap">
+<section id="kontakt" class="section wrap" data-tab="kontakt">
   <div class="inner">
     <div class="section-head rv">
       <div class="stack">
@@ -544,10 +572,11 @@ footer p{max-width:var(--measure)}
         <button class="copy" type="button" id="copy" data-i18n="ok.copy">Kopiraj adresu</button>
       </div>
     </div>
+    <a class="next" href="#pocetna"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.home">Početna</strong></a>
   </div>
 </section>
 
-<div class="closing" aria-hidden="true"><picture><source media="(max-width:760px)" srcset="assets/lobi-epure-2.jpg"><img src="assets/lobi-epure.jpg" alt="" width="1403" height="1121" loading="lazy"></picture></div>
+<div class="closing" aria-hidden="true" data-tab="pocetna"><picture><source media="(max-width:760px)" srcset="assets/lobi-epure-2.jpg"><img src="assets/lobi-epure.jpg" alt="" width="1403" height="1121" loading="lazy"></picture></div>
 
 </main>
 
@@ -569,7 +598,7 @@ footer p{max-width:var(--measure)}
   var EN={
     'brand.sub':'Pariska 22 — Belgrade',
     'nav.project':'The project','nav.location':'Location','nav.arch':'Architecture','nav.res':'Residences','nav.amen':'Amenities','nav.contact':'Contact','nav.cta':'Book a viewing',
-    'hero.eyebrow':'18 residences — Stari grad, Belgrade','swipe':'Swipe for more views →',
+    'hero.eyebrow':'18 residences — Stari grad, Belgrade','swipe':'Swipe for more views →','nav.home':'Home','next':'Next page','t.1':'Pariska 22, beside Kalemegdan','t.2':'Visočica stone, Reynaers, glass','t.3':'18 apartments, 159 to 447 m²','t.4':'Lobby, reception, garage, wellness',
     'hero.h1':'Eighteen city residences on the corner of Pariska and Uzun Mirkova, beside Kalemegdan.',
     'hero.m1':'<strong>Stari grad</strong>, Belgrade','hero.m2':'Residential and commercial building','hero.m3':'Developer <strong>PurEstate d.o.o.</strong>',
     'p.eyebrow':'The project','p.h2':'Pure form. Natural stone. An address that cannot be repeated.',
@@ -633,14 +662,29 @@ footer p{max-width:var(--measure)}
     document.documentElement.lang=l;
     document.getElementById('meta-desc').setAttribute('content',META[l]);
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang')===l?'true':'false')});
-    try{localStorage.setItem('epure-lang',l)}catch(e){}
+    try{localStorage.setItem('epure-lang-v2',l)}catch(e){}
+    if(window.__retitle)window.__retitle();
   }
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'))})});
   var want=null;
-  if(location.hash==='#en')want='en';else if(location.hash==='#sr')want='sr';
-  if(!want){try{want=localStorage.getItem('epure-lang')}catch(e){}}
-  if(!want&&navigator.language&&!/^(sr|hr|bs|sl|mk)/i.test(navigator.language))want='en';
+  try{want=localStorage.getItem('epure-lang-v2')}catch(e){}
   if(want==='en')setLang('en');
+
+  /* ---------- tabovi: svaka sekcija je zasebna strana ---------- */
+  var TABS=['pocetna','lokacija','arhitektura','rezidencije','sadrzaji','kontakt'];
+  var TITLES={sr:{pocetna:'ÉPURE Pariska 22',lokacija:'Lokacija',arhitektura:'Arhitektura',rezidencije:'Rezidencije',sadrzaji:'Sadržaji',kontakt:'Kontakt'},en:{pocetna:'ÉPURE Pariska 22',lokacija:'Location',arhitektura:'Architecture',rezidencije:'Residences',sadrzaji:'Amenities',kontakt:'Contact'}};
+  function showTab(id,scroll){
+    if(TABS.indexOf(id)<0)id='pocetna';
+    document.querySelectorAll('[data-tab]').forEach(function(n){n.hidden=(n.getAttribute('data-tab')!==id)});
+    document.querySelectorAll('.links a,.menu a,.tile').forEach(function(a){var h=(a.getAttribute('href')||'').replace('#','');if(h===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    document.title=id==='pocetna'?TITLES[lang].pocetna:TITLES[lang][id]+' · ÉPURE';
+    if(scroll!==false)window.scrollTo({top:0,behavior:'auto'});
+    document.querySelectorAll('[data-tab]:not([hidden]) .rv').forEach(function(n){n.classList.add('in')});
+  }
+  window.__retitle=function(){var id=(location.hash||'#pocetna').replace('#','');if(TABS.indexOf(id)<0)id='pocetna';document.title=id==='pocetna'?TITLES[lang].pocetna:TITLES[lang][id]+' · ÉPURE'};
+  function fromHash(){var id=(location.hash||'#pocetna').replace('#','');showTab(id)}
+  window.addEventListener('hashchange',fromHash);
+  showTab((location.hash||'#pocetna').replace('#',''),false);
 
   /* ---------- mobilni meni ---------- */
   var menu=document.getElementById('menu'),burger=document.getElementById('burger');
