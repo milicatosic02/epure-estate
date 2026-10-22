@@ -8,8 +8,7 @@
 <meta name="description" id="meta-desc" content="ÉPURE, kolekcija od 18 gradskih rezidencija na uglu Pariske i Uzun Mirkove ulice, uz Kalemegdan, Beograd.">
 <meta name="theme-color" content="#1e1c19">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" as="image" media="(max-width:760px)" imagesrcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" imagesizes="100vw">
-<link rel="preload" as="image" media="(min-width:761px)" imagesrcset="assets/r/lobi-epure-800.jpg 800w, assets/r/lobi-epure-1200.jpg 1200w, assets/lobi-epure.jpg 1403w" imagesizes="100vw">
+<link rel="preload" as="image" imagesrcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1536w" imagesizes="100vw">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
@@ -82,18 +81,17 @@ p{margin:0}
 
 /* hero: full-screen crossfade of the three brand images (logo is inside the images) */
 .hero{position:relative;background:var(--dark);overflow:hidden;color:var(--on-dark);height:100svh;min-height:520px;max-height:1100px}
-.slide{position:absolute;inset:0;opacity:0;animation:fade 42s infinite;will-change:opacity,transform}
-.slide img{width:100%;height:100%;object-fit:cover;animation:kb 42s infinite;transform-origin:center}
+.slide{position:absolute;inset:0;opacity:0;animation:fade 35s infinite;will-change:opacity,transform}
+.slide img{width:100%;height:100%;object-fit:cover;animation:kb 35s infinite;transform-origin:center}
 .slide:nth-child(1),.slide:nth-child(1) img{animation-delay:0s}
 .slide:nth-child(2),.slide:nth-child(2) img{animation-delay:7s}
 .slide:nth-child(3),.slide:nth-child(3) img{animation-delay:14s}
 .slide:nth-child(4),.slide:nth-child(4) img{animation-delay:21s}
 .slide:nth-child(5),.slide:nth-child(5) img{animation-delay:28s}
-.slide:nth-child(6),.slide:nth-child(6) img{animation-delay:35s}
-@keyframes fade{0%{opacity:0}3.6%{opacity:1}16.7%{opacity:1}20.3%{opacity:0}100%{opacity:0}}
+@keyframes fade{0%{opacity:0}4.3%{opacity:1}20%{opacity:1}24.3%{opacity:0}100%{opacity:0}}
 .slide:nth-child(1){animation-name:fade1}
-@keyframes fade1{0%{opacity:1}16.7%{opacity:1}20.3%{opacity:0}100%{opacity:0}}
-@keyframes kb{0%{transform:scale(1)}20.3%{transform:scale(1.07)}100%{transform:scale(1.07)}}
+@keyframes fade1{0%{opacity:1}20%{opacity:1}24.3%{opacity:0}100%{opacity:0}}
+@keyframes kb{0%{transform:scale(1)}24.3%{transform:scale(1.07)}100%{transform:scale(1.07)}}
 .slide.nologo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.72) 0%,rgba(20,18,15,0) 55%)}
 .hero-over{position:absolute;inset:auto 0 0 0;padding-block:2rem 2.4rem;z-index:2;pointer-events:none}
 .hero-over .inner{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem}
@@ -373,11 +371,11 @@ footer p{max-width:var(--measure)}
     <nav aria-label="Glavna navigacija">
       <ul class="links">
         <li><a href="#pocetna" data-i18n="nav.home">Početna</a></li>
-        <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
+        <li><a href="#galerija" data-i18n="nav.gallery">Galerija</a></li>
         <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
         <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
         <li><a href="#sadrzaji" data-i18n="nav.amen">Sadržaji</a></li>
-        <li><a href="#galerija" data-i18n="nav.gallery">Galerija</a></li>
+        <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
       </ul>
     </nav>
     <div class="nav-right">
@@ -397,11 +395,11 @@ footer p{max-width:var(--measure)}
   <p class="menu-meta" data-i18n="brand.sub">Pariska 22 — Beograd</p></div>
   <ul>
     <li><a href="#pocetna" data-i18n="nav.home">Početna</a></li>
-    <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
+    <li><a href="#galerija" data-i18n="nav.gallery">Galerija</a></li>
     <li><a href="#arhitektura" data-i18n="nav.arch">Arhitektura</a></li>
     <li><a href="#rezidencije" data-i18n="nav.res">Rezidencije</a></li>
     <li><a href="#sadrzaji" data-i18n="nav.amen">Sadržaji</a></li>
-    <li><a href="#galerija" data-i18n="nav.gallery">Galerija</a></li>
+    <li><a href="#lokacija" data-i18n="nav.location">Lokacija</a></li>
     <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
   </ul>
   <div class="lang" role="group" aria-label="Jezik / Language">
@@ -415,12 +413,11 @@ footer p{max-width:var(--measure)}
 <main id="top">
 
 <section class="hero" id="hero" aria-label="ÉPURE" data-tab="pocetna">
-  <div class="slide"><picture><source media="(max-width:760px)" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="100vw"><img src="assets/lobi-epure.jpg" srcset="assets/r/lobi-epure-800.jpg 800w, assets/r/lobi-epure-1200.jpg 1200w, assets/lobi-epure.jpg 1403w" sizes="100vw" alt="Ulazni hol zgrade ÉPURE sa natpisom ÉPURE Pariska 22 Belgrade" width="1403" height="1121" fetchpriority="high"></picture></div>
+  <div class="slide nologo"><img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1536w" sizes="100vw" alt="Fasada ÉPURE noću, pogled sa Pariske ulice" width="1536" height="1024" fetchpriority="high"></div>
+  <div class="slide nologo"><img src="assets/lobi-liftovi.jpg" srcset="assets/r/lobi-liftovi-800.jpg 800w, assets/r/lobi-liftovi-1200.jpg 1200w, assets/lobi-liftovi.jpg 1600w" sizes="100vw" alt="Dva lifta u bronzanoj oblozi, maslina i recepcijski pult od kamena" width="1600" height="1280" loading="lazy"></div>
   <div class="slide"><img src="assets/lobi-recepcija-logo.jpg" srcset="assets/r/lobi-recepcija-logo-800.jpg 800w, assets/lobi-recepcija-logo.jpg 1121w" sizes="100vw" alt="Recepcija sa natpisom ÉPURE na zidu od kamena" width="1121" height="1403" loading="lazy"></div>
-  <div class="slide nologo"><picture><source media="(max-width:760px)" srcset="assets/r/ext-detalj-800.jpg 800w, assets/ext-detalj.jpg 1200w" sizes="100vw"><img src="assets/ext-noc.jpg" srcset="assets/r/ext-noc-800.jpg 800w, assets/r/ext-noc-1200.jpg 1200w, assets/ext-noc.jpg 1536w" sizes="100vw" alt="Zgrada ÉPURE noću, osvetljene terase na uglu Pariske i Uzun Mirkove" width="1536" height="1024" loading="lazy"></picture></div>
-  <div class="slide nologo"><picture><source media="(max-width:760px)" srcset="assets/r/lobi-recepcija-800.jpg 800w, assets/r/lobi-recepcija-1200.jpg 1200w, assets/lobi-recepcija.jpg 1280w" sizes="100vw"><img src="assets/lobi-liftovi.jpg" srcset="assets/r/lobi-liftovi-800.jpg 800w, assets/r/lobi-liftovi-1200.jpg 1200w, assets/lobi-liftovi.jpg 1600w" sizes="100vw" alt="Dva lifta u bronzanoj oblozi i recepcijski pult od kamena" width="1600" height="1280" loading="lazy"></picture></div>
-  <div class="slide"><picture><source media="(max-width:760px)" srcset="assets/r/lobi-monogram-800.jpg 800w, assets/lobi-monogram.jpg 1121w" sizes="100vw"><img src="assets/lobi-epure-2.jpg" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="100vw" alt="Lobi zgrade ÉPURE sa natpisom ÉPURE Pariska 22 Belgrade" width="1121" height="1403" loading="lazy"></picture></div>
-  <div class="slide nologo"><picture><source media="(max-width:760px)" srcset="assets/r/lobi-salon-800.jpg 800w, assets/r/lobi-salon-1200.jpg 1200w, assets/lobi-salon.jpg 1280w" sizes="100vw"><img src="assets/lobi-hodnik.jpg" srcset="assets/r/lobi-hodnik-800.jpg 800w, assets/r/lobi-hodnik-1200.jpg 1200w, assets/lobi-hodnik.jpg 1600w" sizes="100vw" alt="Hodnik lobija sa kamenim zidovima i liftovima" width="1600" height="1280" loading="lazy"></picture></div>
+  <div class="slide nologo"><img src="assets/lobi-hodnik.jpg" srcset="assets/r/lobi-hodnik-800.jpg 800w, assets/r/lobi-hodnik-1200.jpg 1200w, assets/lobi-hodnik.jpg 1600w" sizes="100vw" alt="Hodnik lobija sa kamenim zidovima i liftovima" width="1600" height="1280" loading="lazy"></div>
+  <div class="slide"><picture><source media="(max-width:760px)" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="100vw"><img src="assets/lobi-epure.jpg" srcset="assets/r/lobi-epure-800.jpg 800w, assets/r/lobi-epure-1200.jpg 1200w, assets/lobi-epure.jpg 1402w" sizes="100vw" alt="Ulazni hol zgrade ÉPURE sa natpisom ÉPURE Pariska 22 Belgrade" width="1402" height="1122" loading="lazy"></picture></div>
   <div class="hero-over wrap"><div class="inner">
     <svg viewBox="0 0 598 220" role="img" aria-label="ÉPURE"><g transform="translate(60,70)" fill="none" stroke="#efe8dc" stroke-width="7"><path d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/><path fill="#efe8dc" stroke="none" d="M22,-16 L46,-38 L50,-33 L28,-12 Z"/><path transform="translate(100,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0"/><path transform="translate(206,0)" d="M3.5,0 V70.5 A29.5,29.5 0 0 0 62.5,70.5 V0"/><path transform="translate(316,0)" d="M3.5,0 V100 M0,3.5 H36 A24.25,24.25 0 0 1 36,52 H0 M30,52 L58.5,100"/><path transform="translate(422,0)" d="M3.5,0 V100 M0,3.5 H56 M0,50 H48 M0,96.5 H56"/></g></svg>
     <p class="eyebrow" data-i18n="hero.eyebrow">18 rezidencija — Stari grad, Beograd</p>
@@ -458,10 +455,10 @@ footer p{max-width:var(--measure)}
       <div class="fig" role="listitem"><b data-i18n="f.4n">4.046<small> m²</small></b><span data-i18n="f.4">Neto površina stanova</span></div>
     </div>
     <div class="tiles rv" role="list">
-      <a class="tile" href="#lokacija" role="listitem"><img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1600w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1600" height="1107" loading="lazy"><span><em data-i18n="nav.location">Lokacija</em><small data-i18n="t.1">Pariska 22, uz Kalemegdan</small></span></a>
+      <a class="tile" href="#lokacija" role="listitem"><img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1508w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1508" height="1043" loading="lazy"><span><em data-i18n="nav.location">Lokacija</em><small data-i18n="t.1">Pariska 22, uz Kalemegdan</small></span></a>
       <a class="tile" href="#arhitektura" role="listitem"><img src="assets/ext-detalj.jpg" srcset="assets/r/ext-detalj-800.jpg 800w, assets/ext-detalj.jpg 1200w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1200" height="1600" loading="lazy"><span><em data-i18n="nav.arch">Arhitektura</em><small data-i18n="t.2">Kamen Visočica, Reynaers, staklo</small></span></a>
-      <a class="tile" href="#rezidencije" role="listitem"><img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1600w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1600" height="1066" loading="lazy"><span><em data-i18n="nav.res">Rezidencije</em><small data-i18n="t.3">18 stanova, od 159 do 447 m²</small></span></a>
-      <a class="tile" href="#sadrzaji" role="listitem"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1600w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1600" height="1280" loading="lazy"><span><em data-i18n="nav.amen">Sadržaji</em><small data-i18n="t.4">Lobi, recepcija, garaža, wellness</small></span></a>
+      <a class="tile" href="#rezidencije" role="listitem"><img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1536w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1536" height="1024" loading="lazy"><span><em data-i18n="nav.res">Rezidencije</em><small data-i18n="t.3">18 stanova, od 159 do 447 m²</small></span></a>
+      <a class="tile" href="#sadrzaji" role="listitem"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1403w" sizes="(max-width:860px) 50vw, 290px" alt="" width="1403" height="1121" loading="lazy"><span><em data-i18n="nav.amen">Sadržaji</em><small data-i18n="t.4">Lobi, recepcija, garaža, wellness</small></span></a>
     </div>
   </div>
 </section>
@@ -505,10 +502,10 @@ footer p{max-width:var(--measure)}
       </ul>
     </div>
     <figure class="loc-photo rv">
-      <img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1600w" sizes="(max-width:1212px) 100vw, 1180px" alt="Render zgrade ÉPURE iz Pariske ulice, uz susednu istorijsku fasadu i tramvajsku stanicu" width="1600" height="1107" loading="lazy">
+      <img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1508w" sizes="(max-width:1212px) 100vw, 1180px" alt="Zgrada ÉPURE noću iz Pariske ulice, uz susednu istorijsku fasadu i tramvajsku stanicu" width="1508" height="1043" loading="lazy">
       <figcaption class="caption" data-i18n="l.cap">Pogled iz Pariske ulice, uz istorijsko jezgro Starog grada</figcaption>
     </figure>
-    <a class="next" href="#arhitektura"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.arch">Arhitektura</strong></a>
+    <a class="next" href="#kontakt"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.contact">Kontakt</strong></a>
   </div>
 </section>
 
@@ -534,7 +531,7 @@ footer p{max-width:var(--measure)}
       </ul>
     </div>
     <div class="trio rv">
-      <img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1600w" sizes="(max-width:760px) 84vw, 380px" alt="Frontalni pogled na fasadu ÉPURE sa Pariske ulice" width="1600" height="1066" loading="lazy">
+      <img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1536w" sizes="(max-width:760px) 84vw, 380px" alt="Fasada ÉPURE noću, pogled sa Pariske ulice" width="1536" height="1024" loading="lazy">
       <img src="assets/ext-ugao-2.jpg" srcset="assets/r/ext-ugao-2-800.jpg 800w, assets/r/ext-ugao-2-1200.jpg 1200w, assets/ext-ugao-2.jpg 1600w" sizes="(max-width:760px) 84vw, 380px" alt="Ugaoni pogled na zgradu sa Uzun Mirkove ulice" width="1600" height="1066" loading="lazy">
       <img src="assets/ext-noc.jpg" srcset="assets/r/ext-noc-800.jpg 800w, assets/r/ext-noc-1200.jpg 1200w, assets/ext-noc.jpg 1536w" sizes="(max-width:760px) 84vw, 380px" alt="Zgrada ÉPURE noću, osvetljene terase na uglu Pariske i Uzun Mirkove" width="1536" height="1024" loading="lazy">
     </div>
@@ -618,15 +615,15 @@ footer p{max-width:var(--measure)}
       <div><span class="n">06</span><h3 data-i18n="z.h6">Termotehnički komfor</h3><p data-i18n="z.p6">Grejanje i hlađenje svih rezidencija preko sistema toplotnih pumpi.</p></div>
     </div>
     <div class="gallery rv">
-      <figure class="g-wide"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1600w" sizes="(max-width:860px) 84vw, 770px" alt="Ulazni hol: perforirane metalne zavese, kožne fotelje i skulptura uz ulazni portal" width="1600" height="1280" loading="lazy"><figcaption data-i18n="g.1">Ulazni hol</figcaption></figure>
-      <figure class="g-tall"><img src="assets/lobi-monogram.jpg" srcset="assets/r/lobi-monogram-800.jpg 800w, assets/lobi-monogram.jpg 1121w" sizes="(max-width:860px) 84vw, 380px" alt="Recepcija sa monogramom É na zidu od kamena" width="1121" height="1403" loading="lazy"><figcaption data-i18n="g.2">Recepcija</figcaption></figure>
+      <figure class="g-wide"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1403w" sizes="(max-width:860px) 84vw, 770px" alt="Ulazni hol sa natpisom ÉPURE: perforirane metalne zavese, kožne fotelje i skulptura" width="1403" height="1121" loading="lazy"><figcaption data-i18n="g.1">Ulazni hol</figcaption></figure>
+      <figure class="g-tall"><img src="assets/lobi-recepcija-logo.jpg" srcset="assets/r/lobi-recepcija-logo-800.jpg 800w, assets/lobi-recepcija-logo.jpg 1121w" sizes="(max-width:860px) 84vw, 380px" alt="Recepcija sa natpisom ÉPURE na zidu od kamena" width="1121" height="1403" loading="lazy"><figcaption data-i18n="g.2">Recepcija</figcaption></figure>
       <figure class="g-tall"><img src="assets/lobi-salon.jpg" srcset="assets/r/lobi-salon-800.jpg 800w, assets/r/lobi-salon-1200.jpg 1200w, assets/lobi-salon.jpg 1280w" sizes="(max-width:860px) 84vw, 380px" alt="Salon u lobiju sa maslinom i velikom lampom" width="1280" height="1600" loading="lazy"><figcaption data-i18n="g.3">Salon</figcaption></figure>
       <figure class="g-wide"><img src="assets/lobi-liftovi.jpg" srcset="assets/r/lobi-liftovi-800.jpg 800w, assets/r/lobi-liftovi-1200.jpg 1200w, assets/lobi-liftovi.jpg 1600w" sizes="(max-width:860px) 84vw, 770px" alt="Dva lifta u bronzanoj oblozi i recepcijski pult od kamena" width="1600" height="1280" loading="lazy"><figcaption data-i18n="g.4">Liftovi i recepcija</figcaption></figure>
       <figure class="g-wide"><img src="assets/lobi-hodnik.jpg" srcset="assets/r/lobi-hodnik-800.jpg 800w, assets/r/lobi-hodnik-1200.jpg 1200w, assets/lobi-hodnik.jpg 1600w" sizes="(max-width:860px) 84vw, 770px" alt="Hodnik lobija sa kamenim zidovima i liftovima" width="1600" height="1280" loading="lazy"><figcaption data-i18n="g.5">Prilaz liftovima</figcaption></figure>
       <figure class="g-tall"><img src="assets/lobi-recepcija.jpg" srcset="assets/r/lobi-recepcija-800.jpg 800w, assets/r/lobi-recepcija-1200.jpg 1200w, assets/lobi-recepcija.jpg 1280w" sizes="(max-width:860px) 84vw, 380px" alt="Recepcijski pult od masivnog kamena ispred reljefnog zida" width="1280" height="1600" loading="lazy"><figcaption data-i18n="g.6">Pult od kamena</figcaption></figure>
     </div>
     <p class="swipe-hint" data-i18n="swipe">Prevucite za još prikaza →</p>
-    <a class="next" href="#galerija"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.gallery">Galerija</strong></a>
+    <a class="next" href="#lokacija"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.location">Lokacija</strong></a>
   </div>
 </section>
 
@@ -642,27 +639,26 @@ footer p{max-width:var(--measure)}
     <h3 class="gal-h rv" data-i18n="ga.ext">Eksterijer</h3>
     <div class="gal rv">
       <figure><button type="button" class="gal-btn" data-i="0"><img src="assets/ext-noc.jpg" srcset="assets/r/ext-noc-800.jpg 800w, assets/r/ext-noc-1200.jpg 1200w, assets/ext-noc.jpg 1536w" sizes="(max-width:760px) 50vw, 380px" alt="Zgrada noću, ugao Pariske i Uzun Mirkove" width="1536" height="1024" loading="lazy"></button><figcaption data-i18n="gal.ext-noc">Zgrada noću, ugao Pariske i Uzun Mirkove</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="1"><img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Fasada iz Pariske ulice" width="1600" height="1066" loading="lazy"></button><figcaption data-i18n="gal.ext-front">Fasada iz Pariske ulice</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="1"><img src="assets/ext-front.jpg" srcset="assets/r/ext-front-800.jpg 800w, assets/r/ext-front-1200.jpg 1200w, assets/ext-front.jpg 1536w" sizes="(max-width:760px) 50vw, 380px" alt="Fasada noću, iz Pariske ulice" width="1536" height="1024" loading="lazy"></button><figcaption data-i18n="gal.ext-front">Fasada noću, iz Pariske ulice</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="2"><img src="assets/ext-detalj.jpg" srcset="assets/r/ext-detalj-800.jpg 800w, assets/ext-detalj.jpg 1200w" sizes="(max-width:760px) 50vw, 380px" alt="Detalj fasade i ulaza" width="1200" height="1600" loading="lazy"></button><figcaption data-i18n="gal.ext-detalj">Detalj fasade i ulaza</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="3"><img src="assets/ext-ugao.jpg" srcset="assets/r/ext-ugao-800.jpg 800w, assets/r/ext-ugao-1200.jpg 1200w, assets/ext-ugao.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ugaoni pogled" width="1600" height="1090" loading="lazy"></button><figcaption data-i18n="gal.ext-ugao">Ugaoni pogled</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="4"><img src="assets/ext-ugao-2.jpg" srcset="assets/r/ext-ugao-2-800.jpg 800w, assets/r/ext-ugao-2-1200.jpg 1200w, assets/ext-ugao-2.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Pogled iz Uzun Mirkove" width="1600" height="1066" loading="lazy"></button><figcaption data-i18n="gal.ext-ugao-2">Pogled iz Uzun Mirkove</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="5"><img src="assets/ext-ugao-3.jpg" srcset="assets/r/ext-ugao-3-800.jpg 800w, assets/r/ext-ugao-3-1200.jpg 1200w, assets/ext-ugao-3.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Sumrak, ugaoni ulaz" width="1600" height="1066" loading="lazy"></button><figcaption data-i18n="gal.ext-ugao-3">Sumrak, ugaoni ulaz</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="6"><img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Pariska ulica, uz istorijsko jezgro" width="1600" height="1107" loading="lazy"></button><figcaption data-i18n="gal.ext-ulica">Pariska ulica, uz istorijsko jezgro</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="6"><img src="assets/ext-ulica.jpg" srcset="assets/r/ext-ulica-800.jpg 800w, assets/r/ext-ulica-1200.jpg 1200w, assets/ext-ulica.jpg 1508w" sizes="(max-width:760px) 50vw, 380px" alt="Pariska ulica noću, uz istorijsko jezgro" width="1508" height="1043" loading="lazy"></button><figcaption data-i18n="gal.ext-ulica">Pariska ulica noću, uz istorijsko jezgro</figcaption></figure>
     </div>
     <h3 class="gal-h rv" data-i18n="ga.lob">Lobi i zajednički prostori</h3>
     <div class="gal rv">
-      <figure><button type="button" class="gal-btn" data-i="7"><img src="assets/lobi-epure.jpg" srcset="assets/r/lobi-epure-800.jpg 800w, assets/r/lobi-epure-1200.jpg 1200w, assets/lobi-epure.jpg 1403w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni hol" width="1403" height="1121" loading="lazy"></button><figcaption data-i18n="gal.lobi-epure">Ulazni hol</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="8"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni portal i salon" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-ulaz">Ulazni portal i salon</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="7"><img src="assets/lobi-epure.jpg" srcset="assets/r/lobi-epure-800.jpg 800w, assets/r/lobi-epure-1200.jpg 1200w, assets/lobi-epure.jpg 1402w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni hol" width="1402" height="1122" loading="lazy"></button><figcaption data-i18n="gal.lobi-epure">Ulazni hol</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="8"><img src="assets/lobi-ulaz.jpg" srcset="assets/r/lobi-ulaz-800.jpg 800w, assets/r/lobi-ulaz-1200.jpg 1200w, assets/lobi-ulaz.jpg 1403w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni portal i salon" width="1403" height="1121" loading="lazy"></button><figcaption data-i18n="gal.lobi-ulaz">Ulazni portal i salon</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="9"><img src="assets/lobi-recepcija-logo.jpg" srcset="assets/r/lobi-recepcija-logo-800.jpg 800w, assets/lobi-recepcija-logo.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Recepcija" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-recepcija-logo">Recepcija</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="10"><img src="assets/lobi-salon.jpg" srcset="assets/r/lobi-salon-800.jpg 800w, assets/r/lobi-salon-1200.jpg 1200w, assets/lobi-salon.jpg 1280w" sizes="(max-width:760px) 50vw, 380px" alt="Salon sa maslinom" width="1280" height="1600" loading="lazy"></button><figcaption data-i18n="gal.lobi-salon">Salon sa maslinom</figcaption></figure>
       <figure><button type="button" class="gal-btn" data-i="11"><img src="assets/lobi-liftovi.jpg" srcset="assets/r/lobi-liftovi-800.jpg 800w, assets/r/lobi-liftovi-1200.jpg 1200w, assets/lobi-liftovi.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Liftovi i recepcijski pult" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-liftovi">Liftovi i recepcijski pult</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="12"><img src="assets/lobi-monogram.jpg" srcset="assets/r/lobi-monogram-800.jpg 800w, assets/lobi-monogram.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Monogram É" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-monogram">Monogram É</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="13"><img src="assets/lobi-hodnik.jpg" srcset="assets/r/lobi-hodnik-800.jpg 800w, assets/r/lobi-hodnik-1200.jpg 1200w, assets/lobi-hodnik.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Prilaz liftovima" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-hodnik">Prilaz liftovima</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="14"><img src="assets/lobi-recepcija.jpg" srcset="assets/r/lobi-recepcija-800.jpg 800w, assets/r/lobi-recepcija-1200.jpg 1200w, assets/lobi-recepcija.jpg 1280w" sizes="(max-width:760px) 50vw, 380px" alt="Pult od masivnog kamena" width="1280" height="1600" loading="lazy"></button><figcaption data-i18n="gal.lobi-recepcija">Pult od masivnog kamena</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="15"><img src="assets/lobi-ulaz-2.jpg" srcset="assets/r/lobi-ulaz-2-800.jpg 800w, assets/r/lobi-ulaz-2-1200.jpg 1200w, assets/lobi-ulaz-2.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni hol, pogled ka ulici" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-ulaz-2">Ulazni hol, pogled ka ulici</figcaption></figure>
-      <figure><button type="button" class="gal-btn" data-i="16"><img src="assets/lobi-epure-2.jpg" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Lobi sa natpisom ÉPURE" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-epure-2">Lobi sa natpisom ÉPURE</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="12"><img src="assets/lobi-hodnik.jpg" srcset="assets/r/lobi-hodnik-800.jpg 800w, assets/r/lobi-hodnik-1200.jpg 1200w, assets/lobi-hodnik.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Prilaz liftovima" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-hodnik">Prilaz liftovima</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="13"><img src="assets/lobi-recepcija.jpg" srcset="assets/r/lobi-recepcija-800.jpg 800w, assets/r/lobi-recepcija-1200.jpg 1200w, assets/lobi-recepcija.jpg 1280w" sizes="(max-width:760px) 50vw, 380px" alt="Pult od masivnog kamena" width="1280" height="1600" loading="lazy"></button><figcaption data-i18n="gal.lobi-recepcija">Pult od masivnog kamena</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="14"><img src="assets/lobi-ulaz-2.jpg" srcset="assets/r/lobi-ulaz-2-800.jpg 800w, assets/r/lobi-ulaz-2-1200.jpg 1200w, assets/lobi-ulaz-2.jpg 1600w" sizes="(max-width:760px) 50vw, 380px" alt="Ulazni hol, pogled ka ulici" width="1600" height="1280" loading="lazy"></button><figcaption data-i18n="gal.lobi-ulaz-2">Ulazni hol, pogled ka ulici</figcaption></figure>
+      <figure><button type="button" class="gal-btn" data-i="15"><img src="assets/lobi-epure-2.jpg" srcset="assets/r/lobi-epure-2-800.jpg 800w, assets/lobi-epure-2.jpg 1121w" sizes="(max-width:760px) 50vw, 380px" alt="Lobi sa natpisom ÉPURE" width="1121" height="1403" loading="lazy"></button><figcaption data-i18n="gal.lobi-epure-2">Lobi sa natpisom ÉPURE</figcaption></figure>
     </div>
-    <a class="next" href="#kontakt"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.contact">Kontakt</strong></a>
+    <a class="next" href="#arhitektura"><span class="eyebrow" data-i18n="next">Sledeća strana</span><strong data-i18n="nav.arch">Arhitektura</strong></a>
   </div>
 </section>
 
@@ -778,7 +774,7 @@ footer p{max-width:var(--measure)}
     'z.h6':'Climate comfort','z.p6':'Heating and cooling of every residence through a heat-pump system.',
     'g.1':'Entrance hall','g.2':'Reception','g.3':'Lounge','g.4':'Lifts and reception','g.5':'Approach to the lifts','g.6':'Stone reception desk',
     'nav.gallery':'Gallery','ga.eyebrow':'Gallery','ga.h2':'Every view of the building, outside and in.','ga.lead':'Visualisations are illustrative and come from the design. Tap an image to view it full screen.','ga.ext':'Exterior','ga.lob':'Lobby and shared spaces',
-    'gal.ext-noc':'The building at night, corner of Pariska and Uzun Mirkova','gal.ext-front':'Façade from Pariska street','gal.ext-detalj':'Façade and entrance detail','gal.ext-ugao':'Corner view','gal.ext-ugao-2':'View from Uzun Mirkova','gal.ext-ugao-3':'Dusk, the corner entrance','gal.ext-ulica':'Pariska street, within the historic core','gal.lobi-epure':'Entrance hall','gal.lobi-ulaz':'Entrance portal and lounge','gal.lobi-recepcija-logo':'Reception','gal.lobi-salon':'Lounge with olive tree','gal.lobi-liftovi':'Lifts and reception desk','gal.lobi-monogram':'É monogram','gal.lobi-hodnik':'Approach to the lifts','gal.lobi-recepcija':'Solid stone reception desk','gal.lobi-ulaz-2':'Entrance hall, view to the street','gal.lobi-epure-2':'Lobby with the ÉPURE sign',
+    'gal.ext-noc':'The building at night, corner of Pariska and Uzun Mirkova','gal.ext-front':'Façade at night, from Pariska street','gal.ext-detalj':'Façade and entrance detail','gal.ext-ugao':'Corner view','gal.ext-ugao-2':'View from Uzun Mirkova','gal.ext-ugao-3':'Dusk, the corner entrance','gal.ext-ulica':'Pariska street at night, within the historic core','gal.lobi-epure':'Entrance hall','gal.lobi-ulaz':'Entrance portal and lounge','gal.lobi-recepcija-logo':'Reception','gal.lobi-salon':'Lounge with olive tree','gal.lobi-liftovi':'Lifts and reception desk','gal.lobi-hodnik':'Approach to the lifts','gal.lobi-recepcija':'Solid stone reception desk','gal.lobi-ulaz-2':'Entrance hall, view to the street','gal.lobi-epure-2':'Lobby with the ÉPURE sign',
     'k.eyebrow':'Contact','k.h2':'Book a conversation and a viewing.',
     'k.lead':'Send an enquiry with the layout you are interested in. We reply within one working day with floor plans and availability.',
     'k.k1':'Email','k.k2':'Project address','k.v2':'Pariska 22, Belgrade','k.k3':'Developer',
@@ -811,7 +807,7 @@ footer p{max-width:var(--measure)}
   setLang(want==='sr'?'sr':'en');
 
   /* ---------- tabovi: svaka sekcija je zasebna strana ---------- */
-  var TABS=['pocetna','lokacija','arhitektura','rezidencije','sadrzaji','galerija','kontakt'];
+  var TABS=['pocetna','galerija','arhitektura','rezidencije','sadrzaji','lokacija','kontakt'];
   var TITLES={sr:{pocetna:'ÉPURE Pariska 22',lokacija:'Lokacija',arhitektura:'Arhitektura',rezidencije:'Rezidencije',sadrzaji:'Sadržaji',galerija:'Galerija',kontakt:'Kontakt'},en:{pocetna:'ÉPURE Pariska 22',lokacija:'Location',arhitektura:'Architecture',rezidencije:'Residences',sadrzaji:'Amenities',galerija:'Gallery',kontakt:'Contact'}};
   function showTab(id,scroll){
     if(TABS.indexOf(id)<0)id='pocetna';
@@ -842,7 +838,7 @@ footer p{max-width:var(--measure)}
   /* ---------- hero: logo overlay only on the building slide ---------- */
   var hero=document.getElementById('hero');
   var slides=document.querySelectorAll('#hero .slide');
-  function heroTick(){var t=(performance.now()/1000)%42;var i=Math.floor(((t+1.2)%42)/7);var cur=slides[i];hero.classList.toggle('on-building',!!(cur&&cur.classList.contains('nologo')))}
+  function heroTick(){var t=(performance.now()/1000)%35;var i=Math.floor(((t+1.2)%35)/7);var cur=slides[i];hero.classList.toggle('on-building',!!(cur&&cur.classList.contains('nologo')))}
   if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(heroTick,500)}
 
   /* ---------- reveal + brojevi ---------- */
